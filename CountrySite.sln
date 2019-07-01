@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PL_CountrySite", "PL_CountrySite\PL_CountrySite.csproj", "{830BD479-AEEF-49A2-8A1A-371EE19B286D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL_CountrySite", "BL_CountrySite\BL_CountrySite.csproj", "{EE87C3CA-ED51-4681-9660-DF1DB9E6F825}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{830BD479-AEEF-49A2-8A1A-371EE19B286D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{830BD479-AEEF-49A2-8A1A-371EE19B286D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{830BD479-AEEF-49A2-8A1A-371EE19B286D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{830BD479-AEEF-49A2-8A1A-371EE19B286D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE87C3CA-ED51-4681-9660-DF1DB9E6F825}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE87C3CA-ED51-4681-9660-DF1DB9E6F825}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE87C3CA-ED51-4681-9660-DF1DB9E6F825}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE87C3CA-ED51-4681-9660-DF1DB9E6F825}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9AFE9626-A5B8-4992-9FC0-E4EEAACEB089}
+	EndGlobalSection
+EndGlobal
