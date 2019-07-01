@@ -8,5 +8,6 @@ namespace BL_CountrySite
 {
     public class Class1
     {
+        Class1 klasse;
     }
 }
