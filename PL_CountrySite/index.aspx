@@ -38,7 +38,7 @@
                     <asp:TemplateField HeaderText="Username">
                         <ItemTemplate>
                             <asp:LinkButton ID="lbtnToUser" runat="server">
-                                 '<%#Eval("user.userName") %>'
+                                 <%#Eval("user.userName") %>
                             </asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>
@@ -46,7 +46,7 @@
                      <asp:TemplateField HeaderText="Land">
                         <ItemTemplate>
                             <asp:LinkButton ID="lbtnToCountry" runat="server">
-                                 '<%#Eval("country.countryName") %>'
+                                 <%#Eval("country.countryName") %>
                             </asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>
@@ -54,7 +54,7 @@
                      <asp:TemplateField HeaderText="Transportmittel">
                         <ItemTemplate>
                             <asp:LinkButton ID="lbtnToTransport" runat="server">
-                                 '<%#Eval("transport.transportName") %>'
+                                 <%#Eval("transport.transportName") %>
                             </asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>
