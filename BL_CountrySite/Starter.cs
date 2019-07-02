@@ -34,7 +34,9 @@ namespace BL_CountrySite
 
 
         public static Posts getAllPosts() {
-            return null;
+
+            return Post.getAllPosts();
+
         }
 
         public static Countries getAllCountries() {
