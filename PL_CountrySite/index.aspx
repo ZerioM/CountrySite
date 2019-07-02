@@ -35,7 +35,7 @@
 
                 <Columns>
 
-                    <asp:TemplateField>
+                    <asp:TemplateField HeaderText="Username">
                         <ItemTemplate>
                             <asp:LinkButton ID="lbtnToUser" runat="server">
                                  Text='<%#Eval("user.userName") %>'
@@ -43,7 +43,7 @@
                         </ItemTemplate>
                     </asp:TemplateField>
 
-                     <asp:TemplateField>
+                     <asp:TemplateField HeaderText="Land">
                         <ItemTemplate>
                             <asp:LinkButton ID="lbtnToCountry" runat="server">
                                  Text='<%#Eval("country.countryName") %>'
@@ -51,7 +51,7 @@
                         </ItemTemplate>
                     </asp:TemplateField>
 
-                     <asp:TemplateField>
+                     <asp:TemplateField HeaderText="Transportmittel">
                         <ItemTemplate>
                             <asp:LinkButton ID="lbtnToTransport" runat="server">
                                  Text='<%#Eval("transport.transportName") %>'
@@ -59,8 +59,8 @@
                         </ItemTemplate>
                     </asp:TemplateField>
 
-                    <asp:BoundField DataField="date" />
-                    <asp:BoundField DataField="content" />
+                    <asp:BoundField DataField="date" HeaderText="Datum" />
+                    <asp:BoundField DataField="content" HeaderText="Inhalt" />
                 </Columns>
                 
             </asp:GridView>        </div>
