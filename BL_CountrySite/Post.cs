@@ -54,14 +54,14 @@ namespace BL_CountrySite
             onePost.country = new Country();
 
 
-            onePost.postID = reader.GetString(0);
+            onePost.postID = Int32.Parse(reader.GetString(0));
             onePost.content = reader.GetString(4);
             onePost.date = reader.GetString(3);
-            onePost.country.cID = reader.GetString(6);
+            onePost.country.cID = Int32.Parse(reader.GetString(6));
             onePost.country.countryName = reader.GetString(7);
-            onePost.user.uID = reader.GetString(10);
+            onePost.user.uID = Int32.Parse(reader.GetString(10));
             onePost.user.userName = reader.GetString(11);
-            onePost.transport.transportID = reader.GetString(8);
+            onePost.transport.transportID = Int32.Parse(reader.GetString(8));
             onePost.transport.transportName = reader.GetString(9);
             return onePost;
         }

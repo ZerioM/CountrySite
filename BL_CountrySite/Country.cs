@@ -9,7 +9,7 @@ namespace BL_CountrySite
     public class Country
     {
         public int cID { get; internal set; }
-        public int countryName { get; set; }
+        public string countryName { get; set; }
         public List<int> postIDs { get; internal set; }
 
         public Posts getPosts()

@@ -9,7 +9,7 @@ namespace BL_CountrySite
     public class Transport
     {
         public int transportID { get; internal set; }
-        public int transportName { get; set; }
+        public string transportName { get; set; }
         public List<int> postIDs { get; internal set; }
 
         public Posts getPosts() {
