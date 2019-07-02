@@ -9,7 +9,7 @@ namespace BL_CountrySite
     public class User
     {
         public int uID { get; internal set; }
-        public int userName { get; set; }
+        public string userName { get; set; }
         public List<int> postIDs { get; internal set; }
 
         public Posts getPosts()
