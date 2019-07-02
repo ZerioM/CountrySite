@@ -19,7 +19,7 @@
 
             <br />
             <br />
-            <asp:TextBox ID="tbSuche" runat="server"></asp:TextBox>
+            <asp:TextBox ID="tbSuche" runat="server" OnTextChanged="tbSuche_TextChanged"></asp:TextBox>
 
             <asp:Button ID="btnSuche" runat="server" Text="Suche" />
             <br />
@@ -29,7 +29,7 @@
            
            <asp:GridView ID="gvPosts" runat="server"
                 AutoGenerateColumns="False"
-                BorderColor="#3366CC" BorderStyle="Solid" BorderWidth="1px" CellPadding="4" 
+                 BorderStyle="None" BorderWidth="0px" CellPadding="20" 
                 EmptyDataText="Keine Beiträge vorhanden">
                 <Columns>
                     <asp:BoundField DataField="user.userName" />

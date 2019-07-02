@@ -27,5 +27,10 @@ namespace PL_CountrySite
                 allePosts = (Posts)Session["allePosts"];
             }
         }
+
+        protected void tbSuche_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
