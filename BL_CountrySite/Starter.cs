@@ -16,11 +16,20 @@ namespace BL_CountrySite
         {
             List<string> dirs = new List<string>(Path.GetDirectoryName(AppDomain.CurrentDomain.BaseDirectory).Split('\\'));
             dirs.RemoveAt(dirs.Count - 1); //letztes Verzeichnis entfernen
-            string conString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + String.Join(@"\", dirs) + @"\DB\KundenDB4.mdf;Integrated Security=True;Connect Timeout=5";
-            
+            string conString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + String.Join(@"\", dirs) + @"\DL_CountrySite\countrySite.mdf;Integrated Security=True;Connect Timeout=5";
+          
             SqlConnection con = new SqlConnection(conString);
-            con.Open();
-            return con;
+            try
+            {
+                con.Open();
+                return con;
+            }
+            catch (Exception e) {
+                return null;
+            }
+            //ACHTUNG! Aus Funktion returnen, wenn Connection null ist
+            
+            
         }
 
 
