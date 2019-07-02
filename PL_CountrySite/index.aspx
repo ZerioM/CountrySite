@@ -26,9 +26,20 @@
             <br />
 
             <h2>Beiträge</h2>
-            <p>&nbsp;</p>
-            
-        </div>
+           
+           <asp:GridView ID="gvPosts" runat="server"
+                AutoGenerateColumns="False"
+                BorderColor="#3366CC" BorderStyle="Solid" BorderWidth="1px" CellPadding="4" 
+                EmptyDataText="Keine Beiträge vorhanden">
+                <Columns>
+                    <asp:BoundField DataField="user.userName" />
+                    <asp:BoundField DataField="country.countryName" />
+                    <asp:BoundField DataField="transport.transportName" />
+                    <asp:BoundField DataField="date" />
+                    <asp:BoundField DataField="content" />
+                </Columns>
+                
+            </asp:GridView>        </div>
 
     </form>
         </div>
