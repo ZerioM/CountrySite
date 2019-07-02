@@ -31,7 +31,7 @@
                 AutoGenerateColumns="False"
                  BorderStyle="None" BorderWidth="0px" CellPadding="20" 
                 EmptyDataText="Keine Beiträge vorhanden"
-               OnRowCommand="gvPosts_RowCommand">
+              >
 
                 <Columns>
 
