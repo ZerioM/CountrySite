@@ -1,0 +1,33 @@
+﻿body {
+   
+
+
+
+
+}
+
+h1{
+    color:blueviolet;
+  
+}
+
+
+#wrapper {
+    margin: 0 auto;
+    width: 800px;
+    padding: 20px;
+    height: 100%;
+}
+
+#lbtnToNewPost{
+    padding:10px;
+    
+}
+#lbtnToProfile {
+    padding: 10px;
+}
+
+#lbtnToAdmin {
+    padding: 10px;
+}
+
