@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BL_CountrySite
 {
-    public class Class1
+    public class Starter
     {
         //dies ist der Work-Branch Tag 1
     }
