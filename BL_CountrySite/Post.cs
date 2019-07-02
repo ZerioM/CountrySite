@@ -11,7 +11,7 @@ namespace BL_CountrySite
     {
         public int postID { get; internal set; }
         public string content { get; set; }
-        public string date { get; internal set; }
+        public DateTime date { get; internal set; }
         public Country country { get; set; }
         public User user { get; set; }
         public Transport transport { get; set; }
@@ -53,15 +53,15 @@ namespace BL_CountrySite
             onePost.transport = new Transport();
             onePost.country = new Country();
 
-
-            onePost.postID = Int32.Parse(reader.GetString(0));
+            
+            onePost.postID = reader.GetInt32(0);
             onePost.content = reader.GetString(4);
-            onePost.date = reader.GetString(3);
-            onePost.country.cID = Int32.Parse(reader.GetString(6));
+            onePost.date = reader.GetDateTime(3);
+            onePost.country.cID = reader.GetInt32(6);
             onePost.country.countryName = reader.GetString(7);
-            onePost.user.uID = Int32.Parse(reader.GetString(10));
+            onePost.user.uID = reader.GetInt32(10);
             onePost.user.userName = reader.GetString(11);
-            onePost.transport.transportID = Int32.Parse(reader.GetString(8));
+            onePost.transport.transportID = reader.GetInt32(8);
             onePost.transport.transportName = reader.GetString(9);
             return onePost;
         }
