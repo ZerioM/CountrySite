@@ -30,11 +30,35 @@
            <asp:GridView ID="gvPosts" runat="server"
                 AutoGenerateColumns="False"
                  BorderStyle="None" BorderWidth="0px" CellPadding="20" 
-                EmptyDataText="Keine Beiträge vorhanden">
+                EmptyDataText="Keine Beiträge vorhanden"
+               OnRowCommand="gvPosts_RowCommand">
+
                 <Columns>
-                    <asp:BoundField DataField="user.userName" />
-                    <asp:BoundField DataField="country.countryName" />
-                    <asp:BoundField DataField="transport.transportName" />
+
+                    <asp:TemplateField>
+                        <ItemTemplate>
+                            <asp:LinkButton ID="lbtnToUser" runat="server">
+                                 Text='<%#Eval("user.userName") %>'
+                            </asp:LinkButton>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                     <asp:TemplateField>
+                        <ItemTemplate>
+                            <asp:LinkButton ID="lbtnToCountry" runat="server">
+                                 Text='<%#Eval("country.countryName") %>'
+                            </asp:LinkButton>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                     <asp:TemplateField>
+                        <ItemTemplate>
+                            <asp:LinkButton ID="lbtnToTransport" runat="server">
+                                 Text='<%#Eval("transport.transportName") %>'
+                            </asp:LinkButton>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
                     <asp:BoundField DataField="date" />
                     <asp:BoundField DataField="content" />
                 </Columns>
