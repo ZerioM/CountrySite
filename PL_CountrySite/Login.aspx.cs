@@ -20,7 +20,23 @@ namespace PL_CountrySite
             string enteredUsername = tbUsername.Text;
             string enteredPassword = tbPassword.Text;
 
-            Starter.login(enteredUsername, enteredPassword);
+            loggedInUser result = Starter.login(enteredUsername, enteredPassword);
+
+            if (result != null) {
+                if(result.GetType() == typeof(AdminUser))
+                {
+                    Session["AdminUser"] = result;
+                }
+                Session["loggedInUser"] = result;
+                
+                if (Session["WayToLogin"].ToString().Equals("plus")) {   
+                    Response.Redirect("Beitrag.aspx");
+                }
+                Session["User"] = result;
+                Response.Redirect("Profil.aspx");
+            }
+
+            lblErrorLogin.Text = "Login hat nicht funktioniert.";
 
 
         }

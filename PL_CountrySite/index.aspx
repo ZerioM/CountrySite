@@ -13,8 +13,8 @@
     <form id="form1" runat="server">
         <div style="margin-left: 0px">
         <h1>Country Site</h1> 
-        <asp:LinkButton ID="lbtnToNewPost"  runat="server">+</asp:LinkButton>
-        <asp:LinkButton ID="lbtnToProfile"  runat="server">Profil</asp:LinkButton>
+        <asp:LinkButton ID="lbtnToNewPost"  runat="server" OnClick="lbtnToNewPost_Click">+</asp:LinkButton>
+        <asp:LinkButton ID="lbtnToProfile"  runat="server" OnClick="lbtnToProfile_Click">Profil</asp:LinkButton>
         <asp:LinkButton ID="lbtnToAdmin" runat="server">Admin Seite</asp:LinkButton>
 
             <br />

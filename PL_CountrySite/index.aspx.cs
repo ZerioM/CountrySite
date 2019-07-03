@@ -113,6 +113,23 @@ namespace PL_CountrySite
 
         }
 
+        protected void lbtnToNewPost_Click(object sender, EventArgs e)
+        {
+            if (Session["loggedInUser"] != null) Response.Redirect("Beitrag.aspx");
+
+            Session["WayToLogin"] = "plus";
+            Response.Redirect("Login.aspx");
+            
+        }
+
+        protected void lbtnToProfile_Click(object sender, EventArgs e)
+        {
+            if (Session["loggedInUser"] != null) Response.Redirect("Profil.aspx");
+
+            Session["WayToLogin"] = "profile";
+            Response.Redirect("Login.aspx");
+        }
+
         /*protected void gvPosts_RowDataBound(object sender, GridViewRowEventArgs e) //falls man auswählen button ausblenden mag
         {
             if (e.Row.RowType == DataControlRowType.Header)
