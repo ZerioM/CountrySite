@@ -34,7 +34,7 @@
            <asp:GridView ID="gvPosts" runat="server"
                 AutoGenerateColumns="False"
                  BorderStyle="None" BorderWidth="0px" CellPadding="20" 
-                EmptyDataText="Keine Beiträge vorhanden"
+                EmptyDataText="Keine Beiträge vorhanden" OnSelectedIndexChanged="gvPosts_SelectedIndexChanged"
               >
 
                 <Columns>

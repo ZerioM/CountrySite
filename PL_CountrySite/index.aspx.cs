@@ -56,5 +56,10 @@ namespace PL_CountrySite
                 Response.Redirect("Transportmittel.aspx");
             }
         }
+
+        protected void gvPosts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
