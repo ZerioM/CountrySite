@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,35 @@ namespace BL_CountrySite
 
         public Transport save(AdminUser admin) {
             return this;
+        }
+
+        //Statische Methoden, aufgerufen von der Starter-Klasse, damit alle Datenbank-Aufrufe über dieses Objekt in der 
+        //derselben Klasse gesammelt sind
+
+
+        //bei Select * Abfrage gibt er folgende Reihenfolge aus: postID, uid, cid, date, content, tid, cid, name, tid, name, uid, username, pwHash, admin
+        private static Transport fillTransportFromSQLDataReader(SqlDataReader reader)
+        {
+            Transport oneTransport = new Transport();
+
+            oneTransport.transportID = reader.GetInt32(0);
+            oneTransport.transportName = reader.GetString(1);
+
+            return oneTransport;
+        }
+
+        internal static Transports getAllTransports()
+        {
+
+            SqlCommand cmd = new SqlCommand("select * from Transports", Starter.GetConnection());
+            SqlDataReader reader = cmd.ExecuteReader();
+            Transports allTransports = new Transports(); //initialisiere lehre Liste
+            while (reader.Read())
+            {
+                Transport oneTransport = fillTransportFromSQLDataReader(reader);
+                allTransports.Add(oneTransport);
+            }
+            return allTransports;
         }
     }
 }

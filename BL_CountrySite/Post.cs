@@ -66,7 +66,7 @@ namespace BL_CountrySite
             return onePost;
         }
 
-        public static Posts getAllPosts() {
+        internal static Posts getAllPosts() {
 
             SqlCommand cmd = new SqlCommand("select * from Posts as p inner join Countries as c on p.cid = c.cid inner join Transport as t on p.tid = t.tid inner join Users as u on p.uid = u.uid;", Starter.GetConnection());
             SqlDataReader reader = cmd.ExecuteReader();
