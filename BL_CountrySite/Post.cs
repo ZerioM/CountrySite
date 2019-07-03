@@ -20,6 +20,9 @@ namespace BL_CountrySite
 
         public Post(){
             postID = -1;
+            country = new Country();
+            user = new User();
+            transport = new Transport();
         }
 
         public User getUser() {
