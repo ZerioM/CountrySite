@@ -19,6 +19,10 @@
 
             <br />
             <br />
+            <asp:Label ID="lblError" runat="server" ForeColor="Red"></asp:Label>
+
+            <br />
+            <br />
             <asp:TextBox ID="tbSearch" runat="server" OnTextChanged="tbSuche_TextChanged"></asp:TextBox>
 
             <asp:Button ID="btnSuche" runat="server" Text="Suche" OnClick="btnSuche_Click" />

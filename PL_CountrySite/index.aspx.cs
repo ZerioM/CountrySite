@@ -24,12 +24,37 @@ namespace PL_CountrySite
            
         }
 
-        
-        protected void btnSuche_Click(object sender, EventArgs e)
+        protected void tbSuche_TextChanged(object sender, EventArgs e)
         {
 
-            //Starter.searchByName(tbSearch.Text);
+        }
 
+        protected void btnSuche_Click(object sender, EventArgs e)
+        {
+            Object suche = Starter.searchByName(tbSearch.Text);
+            if (suche == null)
+            {
+                lblError.Text = "Land bzw. User wurde nicht gefunden";
+            }
+            else if (suche.GetType()==typeof(Country)){
+
+                lblError.Text = "Land wurde gefunden";
+                Session["Country"] = suche;
+                Response.Redirect("Land.aspx");
+
+            }else if (suche.GetType() == typeof(User)) {
+
+                lblError.Text = "User wurde gefunden";
+                Session["User"] = suche;
+                Response.Redirect("Profil.aspx");
+
+            }
+            else if (suche.GetType() == typeof(Transport))
+            {
+                lblError.Text = "Transport wurde gefunden";
+                Session["Transport"] = suche;
+                Response.Redirect("Transportmittel.aspx");
+            }
         }
     }
 }
