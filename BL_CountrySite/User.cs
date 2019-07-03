@@ -12,7 +12,10 @@ namespace BL_CountrySite
     {
         public int uID { get; internal set; }
         public string userName { get; set; }
-        public List<int> postIDs { get; internal set; }
+        public List<int> postIDs = new List<int>();
+
+        internal User() {
+        }
 
         public Posts getPosts()
         {
@@ -45,13 +48,30 @@ namespace BL_CountrySite
         internal static Users getAllUsers()
         {
 
-            SqlCommand cmd = new SqlCommand("select uid, username, admin from Users", Starter.GetConnection());
+            SqlCommand cmd = new SqlCommand("select u.uid, u.username, p.postID from Users as u left join Posts as p on u.uid = p.uid", Starter.GetConnection());
             SqlDataReader reader = cmd.ExecuteReader();
             Users allUsers = new Users(); //initialisiere lehre Liste
+
+            User currentObject = new User();
+            currentObject.uID = 0;
+
             while (reader.Read())
             {
-                User oneUser = fillUserFromSQLDataReader(reader);
-                allUsers.Add(oneUser);
+                if (currentObject.uID != reader.GetInt32(0)) {
+                    User oneUser = new User();
+                    currentObject = oneUser;
+                    allUsers.Add(currentObject);
+                    currentObject.uID = reader.GetInt32(0);
+                    currentObject.userName = reader.GetString(1);
+                }
+
+                try
+                {
+                    currentObject.postIDs.Add(reader.GetInt32(2));
+                }
+                catch (Exception e) {
+
+                }
             }
             return allUsers;
         }

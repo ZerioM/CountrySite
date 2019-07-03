@@ -17,27 +17,157 @@ namespace BL_CountrySite
         public Transport transport { get; set; }
 
 
-        internal Post(){
-            //postID = null;
+
+        public Post(){
+            postID = -1;
         }
 
         public User getUser() {
             //Load user from DB
-            return null;
+            User loadedUser = new User();
+            SqlCommand cmd = new SqlCommand("select u.uid, u.username, p.postID from Users as u left join Posts as p on u.uid = p.uid where u.uid = @id", Starter.GetConnection());
+            cmd.Parameters.Add(new SqlParameter("id", user.uID));
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            loadedUser.uID = 0;
+
+            while (reader.Read())
+            {
+                if(loadedUser.uID != reader.GetInt32(0))
+                {
+                    loadedUser.uID = reader.GetInt32(0);
+                    loadedUser.userName = reader.GetString(1);
+                }
+
+                try
+                {
+                    loadedUser.postIDs.Add(reader.GetInt32(2));
+                }
+                catch (Exception e) {
+
+                }
+               
+                
+            }
+            return loadedUser;
         }
 
         public Country getCountry() {
             //Load country from DB
-            return null;
+            Country loadedCountry = new Country();
+            SqlCommand cmd = new SqlCommand("select c.cid, c.name, p.postID from Countries as c left join Posts as p on c.cid = p.cid where c.cid = @id", Starter.GetConnection());
+            cmd.Parameters.Add(new SqlParameter("id", country.cID));
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            loadedCountry.cID = 0;
+
+            while (reader.Read())
+            {
+                if (loadedCountry.cID != reader.GetInt32(0))
+                {
+                    loadedCountry.cID = reader.GetInt32(0);
+                    loadedCountry.countryName = reader.GetString(1);
+                }
+
+                try
+                {
+                    loadedCountry.postIDs.Add(reader.GetInt32(2));
+                }
+                catch (Exception e)
+                {
+
+                }
+
+
+            }
+            return loadedCountry;
         }
 
         public Transport getTransport() {
             //Load transport from DB
-            return null;
+            Transport loadedTransport = new Transport();
+            SqlCommand cmd = new SqlCommand("select t.tid, t.name, p.postID from Transport as t left join Posts as p on t.tid = p.tid where t.tid = @id", Starter.GetConnection());
+            cmd.Parameters.Add(new SqlParameter("id", transport.transportID));
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            loadedTransport.transportID = 0;
+
+            while (reader.Read())
+            {
+                if (loadedTransport.transportID != reader.GetInt32(0))
+                {
+                    loadedTransport.transportID = reader.GetInt32(0);
+                    loadedTransport.transportName = reader.GetString(1);
+                }
+
+                try
+                {
+                    loadedTransport.postIDs.Add(reader.GetInt32(2));
+                }
+                catch (Exception e)
+                {
+
+                }
+
+
+            }
+            return loadedTransport;
         }
 
-        public Posts save(loggedInUser currentUser) {
-            return null;
+        public bool save(loggedInUser currentUser) {
+
+            if (postID != -1) {
+                //test, if user who created this post, is currently logged in user
+                if (currentUser.Equals(user))
+                {
+                    string SQLSTMT = "update Posts set content = '@content' where postID = @id";
+                    SqlCommand updateCMD = new SqlCommand();
+                    updateCMD.CommandText = SQLSTMT;
+                    updateCMD.Connection = Starter.GetConnection();
+                    //Die Parameter in SQL-String mit Werten versehen...
+                    updateCMD.Parameters.Add(new SqlParameter("content", content));
+                    updateCMD.Parameters.Add(new SqlParameter("id", postID));
+                    // ExecuteNonQuery() gibt die Anzahl der veränderten/angelegten Records zurück.
+                    return (updateCMD.ExecuteNonQuery() > 0);
+                }
+            }
+
+            string selectCSQL = "select cid from Countries where name = '@nam'";
+            SqlCommand selectCCMD = new SqlCommand();
+            selectCCMD.CommandText = selectCSQL;
+            selectCCMD.Connection = Starter.GetConnection();
+            selectCCMD.Parameters.Add(new SqlParameter("nam", country.countryName));
+            SqlDataReader Creader = selectCCMD.ExecuteReader();
+            while (Creader.Read())
+            {
+                country.cID = Creader.GetInt32(0);
+            }
+
+            string selectTSQL = "select tid from Transport where name = '@nam'";
+            SqlCommand selectTCMD = new SqlCommand();
+            selectTCMD.CommandText = selectTSQL;
+            selectTCMD.Connection = Starter.GetConnection();
+            selectTCMD.Parameters.Add(new SqlParameter("nam", transport.transportName));
+            SqlDataReader Treader = selectTCMD.ExecuteReader();
+            while (Treader.Read())
+            {
+                transport.transportID = Treader.GetInt32(0);
+            }
+
+            user.uID = currentUser.uID;
+            user.userName = currentUser.userName;
+
+            string SQL = "insert into Posts (uid, cid, content, tid) values (@uid, @cid, @content, @tid)";
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = SQL;
+            cmd.Connection = Starter.GetConnection();
+            //Die Parameter in SQL-String mit Werten versehen...
+            cmd.Parameters.Add(new SqlParameter("uid", currentUser.uID));
+            cmd.Parameters.Add(new SqlParameter("cid", country.cID));
+            cmd.Parameters.Add(new SqlParameter("content", content));
+            cmd.Parameters.Add(new SqlParameter("tid", transport.transportID));
+            // ExecuteNonQuery() gibt die Anzahl der veränderten/angelegten Records zurück.
+            return (cmd.ExecuteNonQuery() > 0);
         }
 
 

@@ -34,14 +34,12 @@
            <asp:GridView ID="gvPosts" runat="server"
                 AutoGenerateColumns="False"
                  BorderStyle="None" BorderWidth="0px" CellPadding="20" 
-                EmptyDataText="Keine Beiträge vorhanden" OnSelectedIndexChanged="gvPosts_SelectedIndexChanged"
-              >
-
+                EmptyDataText="Keine Beiträge vorhanden" >
                 <Columns>
 
                     <asp:TemplateField HeaderText="Username">
                         <ItemTemplate>
-                            <asp:LinkButton ID="lbtnToUser" runat="server">
+                            <asp:LinkButton ID="lbtnToUser" runat="server" OnClick="lbtnToUser_Click" commandargument="<%# Container.DataItemIndex %>" >
                                  <%#Eval("user.userName") %>
                             </asp:LinkButton>
                         </ItemTemplate>
@@ -49,7 +47,7 @@
 
                      <asp:TemplateField HeaderText="Land">
                         <ItemTemplate>
-                            <asp:LinkButton ID="lbtnToCountry" runat="server">
+                            <asp:LinkButton ID="lbtnToCountry" runat="server" OnClick="lbtnToCountry_Click"  commandargument="<%# Container.DataItemIndex %>">
                                  <%#Eval("country.countryName") %>
                             </asp:LinkButton>
                         </ItemTemplate>
@@ -57,7 +55,7 @@
 
                      <asp:TemplateField HeaderText="Transportmittel">
                         <ItemTemplate>
-                            <asp:LinkButton ID="lbtnToTransport" runat="server">
+                            <asp:LinkButton ID="lbtnToTransport" runat="server" OnClick="lbtnToTransport_Click" commandargument="<%# Container.DataItemIndex %>">
                                  <%#Eval("transport.transportName") %>
                             </asp:LinkButton>
                         </ItemTemplate>

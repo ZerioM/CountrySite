@@ -12,10 +12,10 @@
    <div id="wrapper">
     <form id="form1" runat="server">
         <div style="margin-left: 0px">
-        <h1>TRABSPORTMITTEL</h1>
+         <h1><% =Session["TransportName"]%></h1>
         <asp:LinkButton ID="lbtnToNewPost"  runat="server">+</asp:LinkButton>
         <asp:LinkButton ID="lbtnToProfile"  runat="server">Profil</asp:LinkButton>
-        <asp:LinkButton ID="lbtnToHome"  runat="server">Home</asp:LinkButton>
+        <asp:LinkButton ID="lbtnToHome"  runat="server" OnClick="lbtnToHome_Click">Home</asp:LinkButton>
       
 
             <h2>Beiträge</h2>
@@ -23,14 +23,14 @@
            <asp:GridView ID="gvPosts" runat="server"
                 AutoGenerateColumns="False"
                  BorderStyle="None" BorderWidth="0px" CellPadding="20" 
-                EmptyDataText="Keine Beiträge vorhanden"
-              >
+                EmptyDataText="Keine Beiträge vorhanden" AutoGenerateSelectButton="False" >
+              
 
                 <Columns>
 
                     <asp:TemplateField HeaderText="Username">
                         <ItemTemplate>
-                            <asp:LinkButton ID="lbtnToUser" runat="server">
+                            <asp:LinkButton ID="lbtnToUser" runat="server" OnClick="lbtnToUser_Click" commandargument="<%# Container.DataItemIndex %>" >
                                  <%#Eval("user.userName") %>
                             </asp:LinkButton>
                         </ItemTemplate>
@@ -38,16 +38,8 @@
 
                      <asp:TemplateField HeaderText="Land">
                         <ItemTemplate>
-                            <asp:LinkButton ID="lbtnToCountry" runat="server">
+                            <asp:LinkButton ID="lbtnToCountry" runat="server" OnClick="lbtnToCountry_Click"  commandargument="<%# Container.DataItemIndex %>">
                                  <%#Eval("country.countryName") %>
-                            </asp:LinkButton>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-
-                     <asp:TemplateField HeaderText="Transportmittel">
-                        <ItemTemplate>
-                            <asp:LinkButton ID="lbtnToTransport" runat="server">
-                                 <%#Eval("transport.transportName") %>
                             </asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>

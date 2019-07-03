@@ -8,5 +8,7 @@ namespace BL_CountrySite
 {
     public class AdminUser : loggedInUser
     {
+        internal AdminUser() {
+        }
     }
 }
