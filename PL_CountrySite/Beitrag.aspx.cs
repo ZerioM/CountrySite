@@ -36,7 +36,7 @@ namespace PL_CountrySite
                 Response.Redirect("index.aspx");
             }
 
-            lblErrorLogin.Text = "Beitrag konnte aufgrund eines Fehlers nicht gespeichert werden."
+            lblErrorLogin.Text = "Beitrag konnte aufgrund eines Fehlers nicht gespeichert werden.";
             
         }
     }
