@@ -81,9 +81,9 @@ namespace BL_CountrySite
 
         internal static Post getOnePost(int postID) {
             Post onePost = new Post();
-            SqlCommand cmd = new SqlCommand("select * from Posts where postID = @id", Starter.GetConnection());
-            SqlDataReader reader = cmd.ExecuteReader();
+            SqlCommand cmd = new SqlCommand("select * from Posts as p inner join Countries as c on p.cid = c.cid inner join Transport as t on p.tid = t.tid inner join Users as u on p.uid = u.uid where postID = @id", Starter.GetConnection());
             cmd.Parameters.Add(new SqlParameter("id", postID));
+            SqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
                 onePost = fillPostFromSQLDataReader(reader);
