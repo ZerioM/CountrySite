@@ -118,17 +118,17 @@ namespace BL_CountrySite
 
             if (postID != -1) {
                 //test, if user who created this post, is currently logged in user
-                if (currentUser == user)
+                if (currentUser.Equals(user))
                 {
-                    string SQL = "update Posts set content = '@content' where postID = @id";
-                    SqlCommand cmd = new SqlCommand();
-                    cmd.CommandText = SQL;
-                    cmd.Connection = Starter.GetConnection();
+                    string SQLSTMT = "update Posts set content = '@content' where postID = @id";
+                    SqlCommand updateCMD = new SqlCommand();
+                    updateCMD.CommandText = SQLSTMT;
+                    updateCMD.Connection = Starter.GetConnection();
                     //Die Parameter in SQL-String mit Werten versehen...
-                    cmd.Parameters.Add(new SqlParameter("content", content));
-                    cmd.Parameters.Add(new SqlParameter("id", postID));
+                    updateCMD.Parameters.Add(new SqlParameter("content", content));
+                    updateCMD.Parameters.Add(new SqlParameter("id", postID));
                     // ExecuteNonQuery() gibt die Anzahl der veränderten/angelegten Records zurück.
-                    return (cmd.ExecuteNonQuery() > 0);
+                    return (updateCMD.ExecuteNonQuery() > 0);
                 }
             }
             string SQL = "insert into Posts (uid, cid, content, tid) values (@uid, @cid, @content, @tid)";
