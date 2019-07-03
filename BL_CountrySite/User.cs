@@ -45,7 +45,7 @@ namespace BL_CountrySite
         internal static Users getAllUsers()
         {
 
-            SqlCommand cmd = new SqlCommand("select uid, username, postID from Users as u left join Posts as p on u.uid = p.uid", Starter.GetConnection());
+            SqlCommand cmd = new SqlCommand("select u.uid, u.username, p.postID from Users as u left join Posts as p on u.uid = p.uid", Starter.GetConnection());
             SqlDataReader reader = cmd.ExecuteReader();
             Users allUsers = new Users(); //initialisiere lehre Liste
 
@@ -62,8 +62,13 @@ namespace BL_CountrySite
                     currentObject.userName = reader.GetString(1);
                 }
 
+                try
+                {
+                    currentObject.postIDs.Add(reader.GetInt32(2));
+                }
+                catch (Exception e) {
 
-                currentObject.postIDs.Add(reader.GetInt32(2));
+                }
             }
             return allUsers;
         }

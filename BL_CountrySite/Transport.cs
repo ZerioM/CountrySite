@@ -59,7 +59,7 @@ namespace BL_CountrySite
         internal static Transports getAllTransports()
         {
 
-            SqlCommand cmd = new SqlCommand("select tID, name, postID from Transport as t left join Posts as p on t.tid = p.tid", Starter.GetConnection());
+            SqlCommand cmd = new SqlCommand("select t.tid, t.name, p.postID from Transport as t left join Posts as p on t.tid = p.tid", Starter.GetConnection());
             SqlDataReader reader = cmd.ExecuteReader();
             Transports allTransports = new Transports(); //initialisiere lehre Liste
 
@@ -78,7 +78,14 @@ namespace BL_CountrySite
                 }
 
 
-                currentObject.postIDs.Add(reader.GetInt32(2));
+                try
+                {
+                    currentObject.postIDs.Add(reader.GetInt32(2));
+                }
+                catch (Exception e)
+                {
+
+                }
             }
             return allTransports;
         }
