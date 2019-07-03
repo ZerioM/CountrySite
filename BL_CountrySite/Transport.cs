@@ -13,6 +13,10 @@ namespace BL_CountrySite
         public string transportName { get; set; }
         public List<int> postIDs = new List<int>();
 
+        internal Transport() {
+
+        }
+
         public Posts getPosts() {
             Posts posts = new Posts(); //initialisiere lehre Liste
 
