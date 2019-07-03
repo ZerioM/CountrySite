@@ -78,10 +78,25 @@ namespace PL_CountrySite
             Session["Post"] = allePosts[RowIndex];
             Response.Redirect("Profil.aspx");
 
-            
+           
+        }
+
+        protected void lbtnToCountry_Click(object sender, EventArgs e)
+        {
+            LinkButton lbtnCopyToCountry = (LinkButton)sender;
+            int RowIndex = Convert.ToInt32(lbtnCopyToCountry.CommandArgument.ToString());
+            Session["Post"] = allePosts[RowIndex];
+            Response.Redirect("Land.aspx");
 
 
+        }
 
+        protected void lbtnToTransport_Click(object sender, EventArgs e)
+        {
+            LinkButton lbtnCopyToTransport = (LinkButton)sender;
+            int RowIndex = Convert.ToInt32(lbtnCopyToTransport.CommandArgument.ToString());
+            Session["Post"] = allePosts[RowIndex];
+            Response.Redirect("Transportmittel.aspx");
 
 
         }
@@ -98,7 +113,7 @@ namespace PL_CountrySite
 
         }
 
-        protected void gvPosts_RowDataBound(object sender, GridViewRowEventArgs e)
+        /*protected void gvPosts_RowDataBound(object sender, GridViewRowEventArgs e) //falls man auswählen button ausblenden mag
         {
             if (e.Row.RowType == DataControlRowType.Header)
                 e.Row.Cells[0].Style.Add(HtmlTextWriterStyle.Display, "none");
@@ -109,6 +124,6 @@ namespace PL_CountrySite
                
             }
 
-        }
+        }*/
     }
 }

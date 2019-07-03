@@ -10,7 +10,7 @@
 namespace PL_CountrySite {
     
     
-    public partial class land {
+    public partial class Land {
         
         /// <summary>
         /// form1-Steuerelement
