@@ -69,7 +69,14 @@ namespace BL_CountrySite
                     currentObject.countryName = reader.GetString(1); 
                 }
 
-                currentObject.postIDs.Add(reader.GetInt32(2));
+                try
+                {
+                    currentObject.postIDs.Add(reader.GetInt32(2));
+                }
+                catch (Exception e) {
+
+                }
+                
                 
                 
             }
