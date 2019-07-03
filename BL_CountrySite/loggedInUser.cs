@@ -9,6 +9,9 @@ namespace BL_CountrySite
 {
     public class loggedInUser : User
     {
+
+        internal loggedInUser() { }
+
         public loggedInUser changePassword(string oldPassword, string newPassword) {
             string pwHashDB;
 
