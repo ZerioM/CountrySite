@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BL_CountrySite
 {
-    public class Class1
+    public class AdminUser : loggedInUser
     {
     }
 }

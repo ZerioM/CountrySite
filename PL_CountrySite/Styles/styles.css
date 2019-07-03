@@ -1,0 +1,33 @@
+﻿body {
+    font-family: 'Futura Std',sans-serif;
+    background-color: #83d0f5;
+}
+
+h1{
+    
+  
+}
+
+
+#wrapper {
+    margin: 0 auto;
+    width: 800px;
+    padding: 20px;
+    height: 100%;
+}
+
+#lbtnToNewPost{
+    padding:10px;
+    
+}
+#lbtnToProfile {
+    padding: 10px;
+}
+
+#lbtnToAdmin {
+    padding: 10px;
+}
+
+#gvPosts {
+    background-color: #cdcdcd;
+}
