@@ -35,7 +35,7 @@
             </p>
             <p>&nbsp;</p>
             <p>
-                <asp:Button ID="btnSave" runat="server" Text="Speichern" />
+                <asp:Button ID="btnSave" runat="server" Text="Speichern" OnClick="btnSave_Click" />
             </p> 
 
 

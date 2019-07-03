@@ -18,7 +18,7 @@ namespace BL_CountrySite
 
 
 
-        internal Post(){
+        public Post(){
             postID = -1;
         }
 
@@ -114,6 +114,7 @@ namespace BL_CountrySite
             return loadedTransport;
         }
 
+
         public bool save(loggedInUser currentUser) {
 
             if (postID != -1) {
@@ -131,6 +132,30 @@ namespace BL_CountrySite
                     return (updateCMD.ExecuteNonQuery() > 0);
                 }
             }
+            string selectCSQL = "select cid from Countries where name = '@nam'";
+            SqlCommand selectCCMD = new SqlCommand();
+            selectCCMD.CommandText = selectCSQL;
+            selectCCMD.Connection = Starter.GetConnection();
+            selectCCMD.Parameters.Add(new SqlParameter("nam", country.countryName));
+            SqlDataReader Creader = selectCCMD.ExecuteReader();
+            while (Creader.Read()) {
+                country.cID = Creader.GetInt32(0);
+            }
+
+            string selectTSQL = "select tid from Transport where name = '@nam'";
+            SqlCommand selectTCMD = new SqlCommand();
+            selectTCMD.CommandText = selectTSQL;
+            selectTCMD.Connection = Starter.GetConnection();
+            selectTCMD.Parameters.Add(new SqlParameter("nam", transport.transportName));
+            SqlDataReader Treader = selectTCMD.ExecuteReader();
+            while (Treader.Read())
+            {
+                transport.transportID = Treader.GetInt32(0);
+            }
+
+            user.uID = currentUser.uID;
+            user.userName = currentUser.userName;
+
             string SQL = "insert into Posts (uid, cid, content, tid) values (@uid, @cid, @content, @tid)";
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = SQL;
