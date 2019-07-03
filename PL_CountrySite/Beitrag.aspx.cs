@@ -20,7 +20,18 @@ namespace PL_CountrySite
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
- 
+            string selectedCountry = ddCountry.SelectedItem.Text;
+            string selectedTransport = ddTransport.SelectedItem.Text;
+
+            Post newPost = new Post();
+            newPost.country.countryName = selectedCountry;
+            newPost.transport.transportName = selectedTransport;
+
+            loggedInUser currentUser = (loggedInUser)Session["loggedInUser"];
+
+            newPost.save(currentUser);
+
+            Response.Redirect("index.aspx");
         }
     }
 }
