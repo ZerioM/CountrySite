@@ -22,7 +22,7 @@
                 <asp:TextBox ID="tbNewCountry" runat="server" Width="175px"></asp:TextBox>
             </p>
             <p>
-                <asp:Button ID="btnAddCountry" runat="server" Text="Hinzufügen" />
+                <asp:Button ID="btnAddCountry" runat="server" Text="Hinzufügen" OnClick="btnAddCountry_Click" />
             </p>
             <p>
                 &nbsp;</p>
@@ -31,7 +31,7 @@
                 <asp:TextBox ID="tbNewTransport" runat="server" Width="181px"></asp:TextBox>
             </p>
             <p>
-                <asp:Button ID="btnAddTransport" runat="server" Text="Hinzufügen" />
+                <asp:Button ID="btnAddTransport" runat="server" Text="Hinzufügen" OnClick="btnAddTransport_Click" />
             </p>
             <p>
                 &nbsp;</p> 

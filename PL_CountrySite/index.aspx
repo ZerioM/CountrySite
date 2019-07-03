@@ -15,7 +15,7 @@
         <h1>Country Site</h1> 
         <asp:LinkButton ID="lbtnToNewPost"  runat="server" OnClick="lbtnToNewPost_Click">+</asp:LinkButton>
         <asp:LinkButton ID="lbtnToProfile"  runat="server" OnClick="lbtnToProfile_Click">Profil</asp:LinkButton>
-        <asp:LinkButton ID="lbtnToAdmin" runat="server" OnClick="lbtnToAdmin_Click">Admin Seite</asp:LinkButton>
+        <asp:LinkButton ID="lbtnToAdmin" runat="server" OnClick="lbtnToAdmin_Click" Visible="False">Admin Seite</asp:LinkButton>
 
             <br />
             <br />
