@@ -8,7 +8,7 @@ using BL_CountrySite;
 
 namespace PL_CountrySite
 {
-    public partial class passwort : System.Web.UI.Page
+    public partial class Passwort : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

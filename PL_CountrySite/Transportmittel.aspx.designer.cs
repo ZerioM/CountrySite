@@ -10,7 +10,7 @@
 namespace PL_CountrySite {
     
     
-    public partial class transportmittel {
+    public partial class Transportmittel {
         
         /// <summary>
         /// form1-Steuerelement

@@ -103,9 +103,9 @@ namespace PL_CountrySite
 
         protected void gvPosts_SelectedIndexChanged(object sender, EventArgs e)
         {
-          /* GridViewRow row = gvPosts.SelectedRow;
+           GridViewRow row = gvPosts.SelectedRow;
             Session["Post"] = allePosts[row.RowIndex];
-                Response.Redirect("Profil.aspx");*/
+                Response.Redirect("Beitrag.aspx");
         
            
             
@@ -128,6 +128,11 @@ namespace PL_CountrySite
 
             Session["WayToLogin"] = "profile";
             Response.Redirect("Login.aspx");
+        }
+
+        protected void lbtnToAdmin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Admin.aspx");
         }
 
         /*protected void gvPosts_RowDataBound(object sender, GridViewRowEventArgs e) //falls man auswählen button ausblenden mag
