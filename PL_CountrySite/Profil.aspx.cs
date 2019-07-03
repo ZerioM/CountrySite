@@ -38,6 +38,13 @@ namespace PL_CountrySite
                 } 
             }
 
+            if (Session["loggedInUser"] != null) {
+                lbtnToPWchange.Visible = true;
+            } else
+            {
+                lbtnToPWchange.Visible = false;
+            }
+
            
   
             
@@ -68,6 +75,11 @@ namespace PL_CountrySite
             Response.Redirect("Transportmittel.aspx");
 
 
+        }
+
+        protected void lbtnToPWchange_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Passwort.aspx");
         }
     }
 }

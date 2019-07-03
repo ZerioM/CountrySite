@@ -40,13 +40,13 @@ namespace PL_CountrySite {
         protected global::System.Web.UI.WebControls.Label lblCurrentPassword;
         
         /// <summary>
-        /// tbUsername-Steuerelement
+        /// tbOldPassword-Steuerelement
         /// </summary>
         /// <remarks>
         /// Automatisch generiertes Feld
         /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbUsername;
+        protected global::System.Web.UI.WebControls.TextBox tbOldPassword;
         
         /// <summary>
         /// lblNewPassword-Steuerelement
@@ -58,13 +58,13 @@ namespace PL_CountrySite {
         protected global::System.Web.UI.WebControls.Label lblNewPassword;
         
         /// <summary>
-        /// tbPassword-Steuerelement
+        /// tbNewPassword-Steuerelement
         /// </summary>
         /// <remarks>
         /// Automatisch generiertes Feld
         /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbPassword;
+        protected global::System.Web.UI.WebControls.TextBox tbNewPassword;
         
         /// <summary>
         /// btnSave-Steuerelement
