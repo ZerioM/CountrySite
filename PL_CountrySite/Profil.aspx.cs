@@ -8,7 +8,7 @@ using BL_CountrySite;
 
 namespace PL_CountrySite
 {
-    public partial class profil : System.Web.UI.Page
+    public partial class Profil : System.Web.UI.Page
     {
         private Posts allePosts;
 

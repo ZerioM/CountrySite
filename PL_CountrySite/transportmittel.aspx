@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Transportmittel.aspx.cs" Inherits="PL_CountrySite.transportmittel" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Transportmittel.aspx.cs" Inherits="PL_CountrySite.Transportmittel" %>
 
 <!DOCTYPE html>
 

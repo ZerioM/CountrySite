@@ -10,7 +10,7 @@
 namespace PL_CountrySite {
     
     
-    public partial class Passwort {
+    public partial class Admin {
         
         /// <summary>
         /// form1-Steuerelement
@@ -22,57 +22,75 @@ namespace PL_CountrySite {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// lblErrorLogin-Steuerelement
+        /// lbtnToHome-Steuerelement
         /// </summary>
         /// <remarks>
         /// Automatisch generiertes Feld
         /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblErrorLogin;
+        protected global::System.Web.UI.WebControls.LinkButton lbtnToHome;
         
         /// <summary>
-        /// lblCurrentPassword-Steuerelement
+        /// lblErrorAdmin-Steuerelement
         /// </summary>
         /// <remarks>
         /// Automatisch generiertes Feld
         /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCurrentPassword;
+        protected global::System.Web.UI.WebControls.Label lblErrorAdmin;
         
         /// <summary>
-        /// tbUsername-Steuerelement
+        /// lblNewCountry-Steuerelement
         /// </summary>
         /// <remarks>
         /// Automatisch generiertes Feld
         /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbUsername;
+        protected global::System.Web.UI.WebControls.Label lblNewCountry;
         
         /// <summary>
-        /// lblNewPassword-Steuerelement
+        /// tbNewCountry-Steuerelement
         /// </summary>
         /// <remarks>
         /// Automatisch generiertes Feld
         /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNewPassword;
+        protected global::System.Web.UI.WebControls.TextBox tbNewCountry;
         
         /// <summary>
-        /// tbPassword-Steuerelement
+        /// btnAddCountry-Steuerelement
         /// </summary>
         /// <remarks>
         /// Automatisch generiertes Feld
         /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbPassword;
+        protected global::System.Web.UI.WebControls.Button btnAddCountry;
         
         /// <summary>
-        /// btnSave-Steuerelement
+        /// lblNewTransport-Steuerelement
         /// </summary>
         /// <remarks>
         /// Automatisch generiertes Feld
         /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSave;
+        protected global::System.Web.UI.WebControls.Label lblNewTransport;
+        
+        /// <summary>
+        /// tbNewTransport-Steuerelement
+        /// </summary>
+        /// <remarks>
+        /// Automatisch generiertes Feld
+        /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbNewTransport;
+        
+        /// <summary>
+        /// btnAddTransport-Steuerelement
+        /// </summary>
+        /// <remarks>
+        /// Automatisch generiertes Feld
+        /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddTransport;
     }
 }

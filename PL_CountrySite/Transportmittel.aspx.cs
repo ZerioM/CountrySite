@@ -8,7 +8,7 @@ using BL_CountrySite;
 
 namespace PL_CountrySite
 {
-    public partial class transportmittel : System.Web.UI.Page
+    public partial class Transportmittel : System.Web.UI.Page
     {
         private Posts allePosts;
         protected void Page_Load(object sender, EventArgs e)

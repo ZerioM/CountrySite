@@ -10,7 +10,7 @@
 namespace PL_CountrySite {
     
     
-    public partial class profil {
+    public partial class Profil {
         
         /// <summary>
         /// form1-Steuerelement
