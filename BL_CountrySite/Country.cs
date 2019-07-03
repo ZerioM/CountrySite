@@ -13,6 +13,8 @@ namespace BL_CountrySite
         public string countryName { get; set; }
         public List<int> postIDs = new List<int>();
 
+        internal Country() {
+        }
 
         public Posts getPosts()
         {

@@ -14,6 +14,9 @@ namespace BL_CountrySite
         public string userName { get; set; }
         public List<int> postIDs = new List<int>();
 
+        internal User() {
+        }
+
         public Posts getPosts()
         {
             Posts posts = new Posts(); //initialisiere lehre Liste
