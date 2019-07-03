@@ -59,13 +59,26 @@ namespace BL_CountrySite
         internal static Transports getAllTransports()
         {
 
-            SqlCommand cmd = new SqlCommand("select * from Transport", Starter.GetConnection());
+            SqlCommand cmd = new SqlCommand("select tID, name, postID from Transport as t left join Posts as p on t.tid = p.tid", Starter.GetConnection());
             SqlDataReader reader = cmd.ExecuteReader();
             Transports allTransports = new Transports(); //initialisiere lehre Liste
+
+            Transport currentObject = new Transport();
+            currentObject.transportID = 0;
+
             while (reader.Read())
             {
-                Transport oneTransport = fillTransportFromSQLDataReader(reader);
-                allTransports.Add(oneTransport);
+                if (currentObject.transportID != reader.GetInt32(0))
+                {
+                    Transport oneTransport = new Transport();
+                    currentObject = oneTransport;
+                    allTransports.Add(currentObject);
+                    currentObject.transportID = reader.GetInt32(0);
+                    currentObject.transportName = reader.GetString(1);
+                }
+
+
+                currentObject.postIDs.Add(reader.GetInt32(2));
             }
             return allTransports;
         }
