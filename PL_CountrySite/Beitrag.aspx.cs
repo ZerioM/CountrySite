@@ -43,7 +43,7 @@ namespace PL_CountrySite
             newPost.country.countryName = selectedCountry;
             newPost.transport.transportName = selectedTransport;
 
-            loggedInUser currentUser = (loggedInUser)Session["loggedInUser"];
+            loggedInUser currentUser = (loggedInUser) Session["loggedInUser"];
 
             if (newPost.save(currentUser)) {
                 Response.Redirect("index.aspx");
