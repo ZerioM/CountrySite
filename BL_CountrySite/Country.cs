@@ -13,7 +13,7 @@ namespace BL_CountrySite
         public string countryName { get; set; }
         public List<int> postIDs = new List<int>();
 
-        internal Country() {
+        public Country() {
         }
 
         public Posts getPosts()
@@ -30,13 +30,12 @@ namespace BL_CountrySite
         public bool save(AdminUser admin)
         {
             if (admin != null) {
-                string SQL = "update Countries set name = '@nam' where cid = @id";
+                string SQL = "insert into Countries (name) values (@nam)";
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandText = SQL;
                 cmd.Connection = Starter.GetConnection();
                 //Die Parameter in SQL-String mit Werten versehen...
                 cmd.Parameters.Add(new SqlParameter("nam", countryName));
-                cmd.Parameters.Add(new SqlParameter("id", cID));
                 // ExecuteNonQuery() gibt die Anzahl der veränderten/angelegten Records zurück.
                 return (cmd.ExecuteNonQuery() > 0);
             }

@@ -20,7 +20,15 @@ namespace PL_CountrySite
            
                 allePosts = Starter.getAllPosts(); 
                 gvPosts.DataSource = allePosts;
-                gvPosts.DataBind(); 
+                gvPosts.DataBind();
+
+            if (Session["AdminUser"] != null)
+            {
+                lbtnToAdmin.Visible = true;
+            }
+            else {
+                lbtnToAdmin.Visible = false;
+            }
            
            
         }
