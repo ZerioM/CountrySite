@@ -41,7 +41,7 @@ namespace BL_CountrySite
         }
 
 
-        //Statische Methoden, aufgerufen von der Starter-Klasse, damit alle Datenbank-Aufrufe über dieses Objekt in der 
+        //Statische Methoden, aufgerufen von anderen Klassen, damit alle Datenbank-Aufrufe über dieses Objekt in der 
         //derselben Klasse gesammelt sind
 
 
@@ -78,6 +78,19 @@ namespace BL_CountrySite
             }
             return allPosts;
         }
+
+        internal static Post getOnePost(int postID) {
+            Post onePost = new Post();
+            SqlCommand cmd = new SqlCommand("select * from Posts where postID = @id", Starter.GetConnection());
+            SqlDataReader reader = cmd.ExecuteReader();
+            cmd.Parameters.Add(new SqlParameter("id", postID));
+            while (reader.Read())
+            {
+                onePost = fillPostFromSQLDataReader(reader);
+            }
+            return onePost;
+        }
+        
         
 
     }

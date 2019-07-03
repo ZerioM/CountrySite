@@ -16,7 +16,14 @@ namespace BL_CountrySite
 
         public Posts getPosts()
         {
-            return null;
+            Posts posts = new Posts(); //initialisiere lehre Liste
+
+            foreach (int postID in postIDs)
+            {
+                Post post = Post.getOnePost(postID);
+                posts.Add(post);
+            }
+            return posts;
         }
 
         
@@ -53,7 +60,7 @@ namespace BL_CountrySite
 
             string pwHashDB;
 
-            string SQL = "select pwHash from Users where ID = @id";
+            string SQL = "select pwHash from Users where uID = @id";
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = SQL;
             cmd.Connection = Starter.GetConnection();
