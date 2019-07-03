@@ -11,7 +11,8 @@ namespace BL_CountrySite
     {
         public int cID { get; internal set; }
         public string countryName { get; set; }
-        public List<int> postIDs { get; internal set; }
+        public List<int> postIDs = new List<int>();
+
 
         public Posts getPosts()
         {
