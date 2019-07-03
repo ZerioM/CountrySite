@@ -116,22 +116,6 @@ namespace BL_CountrySite
 
         public bool save(loggedInUser currentUser) {
 
-            if (postID != -1) {
-                //test, if user who created this post, is currently logged in user
-                if (currentUser.Equals(user))
-                {
-                    string SQLSTMT = "update Posts set content = '@content' where postID = @id";
-                    SqlCommand updateCMD = new SqlCommand();
-                    updateCMD.CommandText = SQLSTMT;
-                    updateCMD.Connection = Starter.GetConnection();
-                    //Die Parameter in SQL-String mit Werten versehen...
-                    updateCMD.Parameters.Add(new SqlParameter("content", content));
-                    updateCMD.Parameters.Add(new SqlParameter("id", postID));
-                    // ExecuteNonQuery() gibt die Anzahl der veränderten/angelegten Records zurück.
-                    return (updateCMD.ExecuteNonQuery() > 0);
-                }
-            }
-
             string selectCSQL = "select cid from Countries where name = '@nam'";
             SqlCommand selectCCMD = new SqlCommand();
             selectCCMD.CommandText = selectCSQL;
@@ -152,6 +136,24 @@ namespace BL_CountrySite
             while (Treader.Read())
             {
                 transport.transportID = Treader.GetInt32(0);
+            }
+
+            if (postID != -1) {
+                //test, if user who created this post, is currently logged in user
+                if (currentUser.Equals(user))
+                {
+                    string SQLSTMT = "update Posts set cid = '@cid', content = '@content', tid = '@tid' where postID = @id";
+                    SqlCommand updateCMD = new SqlCommand();
+                    updateCMD.CommandText = SQLSTMT;
+                    updateCMD.Connection = Starter.GetConnection();
+                    //Die Parameter in SQL-String mit Werten versehen...
+                    updateCMD.Parameters.Add(new SqlParameter("cid", country.cID));
+                    updateCMD.Parameters.Add(new SqlParameter("content", content));
+                    updateCMD.Parameters.Add(new SqlParameter("tid", transport.transportID));
+                    updateCMD.Parameters.Add(new SqlParameter("id", postID));
+                    // ExecuteNonQuery() gibt die Anzahl der veränderten/angelegten Records zurück.
+                    return (updateCMD.ExecuteNonQuery() > 0);
+                }
             }
 
             user.uID = currentUser.uID;

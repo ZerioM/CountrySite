@@ -32,9 +32,12 @@ namespace PL_CountrySite
 
             loggedInUser currentUser = (loggedInUser)Session["loggedInUser"];
 
-            newPost.save(currentUser);
+            if (newPost.save(currentUser)) {
+                Response.Redirect("index.aspx");
+            }
 
-            Response.Redirect("index.aspx");
+            lblErrorLogin.Text = "Beitrag konnte aufgrund eines Fehlers nicht gespeichert werden.";
+            
         }
     }
 }

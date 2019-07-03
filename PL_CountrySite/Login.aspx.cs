@@ -33,6 +33,7 @@ namespace PL_CountrySite
                     Response.Redirect("Beitrag.aspx");
                 }
                 Session["User"] = result;
+                Session["UserName"] = result.userName;
                 Response.Redirect("Profil.aspx");
             }
 
