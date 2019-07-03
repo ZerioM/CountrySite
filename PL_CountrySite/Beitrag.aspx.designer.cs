@@ -67,6 +67,24 @@ namespace PL_CountrySite {
         protected global::System.Web.UI.WebControls.Label lblTransport;
         
         /// <summary>
+        /// ddTransport-Steuerelement
+        /// </summary>
+        /// <remarks>
+        /// Automatisch generiertes Feld
+        /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddTransport;
+        
+        /// <summary>
+        /// ObjectDataSource2-Steuerelement
+        /// </summary>
+        /// <remarks>
+        /// Automatisch generiertes Feld
+        /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSource2;
+        
+        /// <summary>
         /// lblContent-Steuerelement
         /// </summary>
         /// <remarks>

@@ -41,7 +41,7 @@ namespace BL_CountrySite
         }
 
 
-        //Statische Methoden, aufgerufen von der Starter-Klasse, damit alle Datenbank-Aufrufe über dieses Objekt in der 
+        //Statische Methoden, aufgerufen von anderen Klassen, damit alle Datenbank-Aufrufe über dieses Objekt in der 
         //derselben Klasse gesammelt sind
 
 
@@ -78,6 +78,19 @@ namespace BL_CountrySite
             }
             return allPosts;
         }
+
+        internal static Post getOnePost(int postID) {
+            Post onePost = new Post();
+            SqlCommand cmd = new SqlCommand("select * from Posts as p inner join Countries as c on p.cid = c.cid inner join Transport as t on p.tid = t.tid inner join Users as u on p.uid = u.uid where postID = @id", Starter.GetConnection());
+            cmd.Parameters.Add(new SqlParameter("id", postID));
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                onePost = fillPostFromSQLDataReader(reader);
+            }
+            return onePost;
+        }
+        
         
 
     }

@@ -19,11 +19,15 @@
             </p>
             <p>
                 <asp:Label ID="lblCountry" runat="server" Text="Land:"></asp:Label>
-                <asp:DropDownList ID="ddCountry" runat="server">
+                <asp:DropDownList ID="ddCountry" runat="server" DataSourceID="ObjectDataSource1" DataTextField="countryName" DataValueField="cID">
                 </asp:DropDownList>
+                <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="getAllCountries" TypeName="BL_CountrySite.Starter"></asp:ObjectDataSource>
             </p>
             <p>
                 <asp:Label ID="lblTransport" runat="server" Text="Transportmittel:"></asp:Label>
+                <asp:DropDownList ID="ddTransport" runat="server" DataSourceID="ObjectDataSource2" DataTextField="transportName" DataValueField="transportID">
+                </asp:DropDownList>
+                <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" SelectMethod="getAllTransports" TypeName="BL_CountrySite.Starter"></asp:ObjectDataSource>
             </p>
             <p>
                 <asp:Label ID="lblContent" runat="server" Text="Beitrag:"></asp:Label>

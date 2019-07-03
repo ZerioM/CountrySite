@@ -14,12 +14,7 @@ namespace PL_CountrySite
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            alleLänder = Starter.getAllCountries();
-            ddCountry.DataSource = alleLänder;
-
-           /* ddCountry.DataValueField = 
-            ddCountry.DataTextField = "countryName";
-            ddCountry.DataBind();*/
+            
 
         }
     }

@@ -14,11 +14,31 @@ namespace BL_CountrySite
         public List<int> postIDs { get; internal set; }
 
         public Posts getPosts() {
-            return null;
+            Posts posts = new Posts(); //initialisiere lehre Liste
+
+            foreach (int postID in postIDs)
+            {
+                Post post = Post.getOnePost(postID);
+                posts.Add(post);
+            }
+            return posts;
         }
 
-        public Transport save(AdminUser admin) {
-            return this;
+        public bool save(AdminUser admin) {
+            if (admin != null)
+            {
+                string SQL = "update Transport set name = '@nam' where tid = @id";
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = SQL;
+                cmd.Connection = Starter.GetConnection();
+                //Die Parameter in SQL-String mit Werten versehen...
+                cmd.Parameters.Add(new SqlParameter("nam", transportName));
+                cmd.Parameters.Add(new SqlParameter("id", transportID));
+                // ExecuteNonQuery() gibt die Anzahl der veränderten/angelegten Records zurück.
+                return (cmd.ExecuteNonQuery() > 0);
+            }
+
+            return false;
         }
 
         //Statische Methoden, aufgerufen von der Starter-Klasse, damit alle Datenbank-Aufrufe über dieses Objekt in der 

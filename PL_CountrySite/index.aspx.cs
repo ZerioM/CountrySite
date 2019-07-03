@@ -28,5 +28,39 @@ namespace PL_CountrySite
         {
 
         }
+
+        protected void btnSuche_Click(object sender, EventArgs e)
+        {
+            Object suche = Starter.searchByName(tbSearch.Text);
+            if (suche == null)
+            {
+                lblError.Text = "Land bzw. User wurde nicht gefunden";
+            }
+            else if (suche.GetType()==typeof(Country)){
+                Country country = (Country)suche;
+                lblError.Text = "Land wurde gefunden";
+                Session["Country"] = country;
+                Session["CountryName"] = country.countryName;
+                Response.Redirect("Land.aspx");
+
+            }else if (suche.GetType() == typeof(User)) {
+
+                lblError.Text = "User wurde gefunden";
+                Session["User"] = suche;
+                Response.Redirect("Profil.aspx");
+
+            }
+            else if (suche.GetType() == typeof(Transport))
+            {
+                lblError.Text = "Transport wurde gefunden";
+                Session["Transport"] = suche;
+                Response.Redirect("Transportmittel.aspx");
+            }
+        }
+
+        protected void gvPosts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

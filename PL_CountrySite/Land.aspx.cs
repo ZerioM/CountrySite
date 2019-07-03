@@ -13,10 +13,12 @@ namespace PL_CountrySite
     { private Posts allePosts;
         protected void Page_Load(object sender, EventArgs e)
         {
+            Country country = (Country)Session["Country"];
+           
 
-           /* allePosts = country.getPosts();
+            allePosts = country.getPosts();
             gvPosts.DataSource = allePosts;
-            gvPosts.DataBind();*/
+            gvPosts.DataBind();
         }
     }
 }

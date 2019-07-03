@@ -19,9 +19,13 @@
 
             <br />
             <br />
-            <asp:TextBox ID="tbSuche" runat="server" OnTextChanged="tbSuche_TextChanged"></asp:TextBox>
+            <asp:Label ID="lblError" runat="server" ForeColor="Red"></asp:Label>
 
-            <asp:Button ID="btnSuche" runat="server" Text="Suche" />
+            <br />
+            <br />
+            <asp:TextBox ID="tbSearch" runat="server" OnTextChanged="tbSuche_TextChanged"></asp:TextBox>
+
+            <asp:Button ID="btnSuche" runat="server" Text="Suche" OnClick="btnSuche_Click" />
             <br />
             <br />
 
@@ -30,7 +34,7 @@
            <asp:GridView ID="gvPosts" runat="server"
                 AutoGenerateColumns="False"
                  BorderStyle="None" BorderWidth="0px" CellPadding="20" 
-                EmptyDataText="Keine Beiträge vorhanden"
+                EmptyDataText="Keine Beiträge vorhanden" OnSelectedIndexChanged="gvPosts_SelectedIndexChanged"
               >
 
                 <Columns>
