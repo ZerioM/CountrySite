@@ -95,7 +95,7 @@ namespace BL_CountrySite
                 {
                     User user = (User)o;
                     if (user.checkPassword(password)) {
-                        loggedInUser loggedInUser = new loggedInUser;
+                        loggedInUser loggedInUser = new loggedInUser();
                         loggedInUser.uID = user.uID;
                         loggedInUser.userName = user.userName;
                         loggedInUser.postIDs = user.postIDs;
@@ -113,7 +113,7 @@ namespace BL_CountrySite
             newUser.userName = username;
             if (newUser.insert(password)) return newUser;
 
-            Console.WriteLine("Das Speichern des Datensatzes hat nicht funktioniert.")
+            Console.WriteLine("Das Speichern des Datensatzes hat nicht funktioniert.");
             return null;
 
         }
