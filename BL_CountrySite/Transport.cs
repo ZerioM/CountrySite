@@ -39,7 +39,7 @@ namespace BL_CountrySite
         internal static Transports getAllTransports()
         {
 
-            SqlCommand cmd = new SqlCommand("select * from Transports", Starter.GetConnection());
+            SqlCommand cmd = new SqlCommand("select * from Transport", Starter.GetConnection());
             SqlDataReader reader = cmd.ExecuteReader();
             Transports allTransports = new Transports(); //initialisiere lehre Liste
             while (reader.Read())
