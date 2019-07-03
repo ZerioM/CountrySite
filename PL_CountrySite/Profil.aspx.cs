@@ -6,27 +6,23 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using BL_CountrySite;
 
-
 namespace PL_CountrySite
 {
-    public partial class index : System.Web.UI.Page { 
-
+    public partial class profil : System.Web.UI.Page
+    {
         private Posts allePosts;
-    
         protected void Page_Load(object sender, EventArgs e)
         {
-           
-           
-                allePosts = Starter.getAllPosts(); 
+            
+          
+                /*allePosts = user.getPosts();
                 gvPosts.DataSource = allePosts;
-                gvPosts.DataBind(); 
-           
-           
-        }
-
-        protected void tbSuche_TextChanged(object sender, EventArgs e)
-        {
+                gvPosts.DataBind();*/
+  
+            
 
         }
+
+       
     }
 }
