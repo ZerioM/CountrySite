@@ -11,13 +11,14 @@ namespace PL_CountrySite
     public partial class profil : System.Web.UI.Page
     {
         private Posts allePosts;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-          
-                /*allePosts = user.getPosts();
+            User user = (User)Session["User"];
+
+            allePosts = user.getPosts();
                 gvPosts.DataSource = allePosts;
-                gvPosts.DataBind();*/
+                gvPosts.DataBind();
   
             
 
