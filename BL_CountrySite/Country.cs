@@ -46,26 +46,31 @@ namespace BL_CountrySite
 
 
         //bei Select * Abfrage gibt er folgende Reihenfolge aus: postID, uid, cid, date, content, tid, cid, name, tid, name, uid, username, pwHash, admin
-        private static Country fillCountryFromSQLDataReader(SqlDataReader reader)
-        {
-            Country oneCountry = new Country();
-
-            oneCountry.cID = reader.GetInt32(0);
-            oneCountry.countryName = reader.GetString(1);
-
-            return oneCountry;
-        }
 
         internal static Countries getAllCountries()
         {
 
-            SqlCommand cmd = new SqlCommand("select * from Countries", Starter.GetConnection());
+            SqlCommand cmd = new SqlCommand("select cid, name from Countries", Starter.GetConnection());
             SqlDataReader reader = cmd.ExecuteReader();
             Countries allCountries = new Countries(); //initialisiere lehre Liste
+
+            Country currentObject = new Country();
+            currentObject.cID = 0;
+
             while (reader.Read())
             {
-                Country oneCountry = fillCountryFromSQLDataReader(reader);
-                allCountries.Add(oneCountry);
+                
+                if (currentObject.cID != reader.GetInt32(0)) {
+                    Country oneCountry = new Country();
+                    currentObject = oneCountry;
+                    allCountries.Add(currentObject);
+                    currentObject.cID = reader.GetInt32(0);
+                    currentObject.countryName = reader.GetString(1); 
+                }
+
+                currentObject.postIDs.Add(reader.GetInt32(2));
+                
+                
             }
             return allCountries;
         }
