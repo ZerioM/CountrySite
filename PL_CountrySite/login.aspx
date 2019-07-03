@@ -22,7 +22,7 @@
             </p>
             <p>
                 <asp:Label ID="lblPassword" runat="server" Text="Passwort:"></asp:Label>
-                <asp:TextBox ID="tbPassword" runat="server" Width="181px"></asp:TextBox>
+                <asp:TextBox ID="tbPassword" TextMode="Password" runat="server" Width="181px"></asp:TextBox>
             </p>
             <p>&nbsp;</p>
             <p>
