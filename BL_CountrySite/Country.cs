@@ -15,12 +15,30 @@ namespace BL_CountrySite
 
         public Posts getPosts()
         {
-            return null;
+            Posts posts = new Posts(); //initialisiere lehre Liste
+
+            foreach (int postID in postIDs) {
+                Post post = Post.getOnePost(postID);
+                posts.Add(post);
+            }
+            return posts;
         }
 
-        public Country save(AdminUser admin)
+        public bool save(AdminUser admin)
         {
-            return this;
+            if (admin != null) {
+                string SQL = "update Countries set name = '@nam' where cid = @id";
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = SQL;
+                cmd.Connection = Starter.GetConnection();
+                //Die Parameter in SQL-String mit Werten versehen...
+                cmd.Parameters.Add(new SqlParameter("nam", countryName));
+                cmd.Parameters.Add(new SqlParameter("id", cID));
+                // ExecuteNonQuery() gibt die Anzahl der veränderten/angelegten Records zurück.
+                return (cmd.ExecuteNonQuery() > 0);
+            }
+
+            return false;
         }
 
         //Statische Methoden, aufgerufen von der Starter-Klasse, damit alle Datenbank-Aufrufe über dieses Objekt in der 
