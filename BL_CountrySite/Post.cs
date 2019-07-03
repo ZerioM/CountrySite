@@ -17,8 +17,9 @@ namespace BL_CountrySite
         public Transport transport { get; set; }
 
 
+
         internal Post(){
-            //postID = null;
+            postID = -1;
         }
 
         public User getUser() {
@@ -113,8 +114,34 @@ namespace BL_CountrySite
             return loadedTransport;
         }
 
-        public Posts save(loggedInUser currentUser) {
-            return null;
+        public bool save(loggedInUser currentUser) {
+
+            if (postID != -1) {
+                //test, if user who created this post, is currently logged in user
+                if (currentUser == user)
+                {
+                    string SQL = "update Posts set content = '@content' where postID = @id";
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.CommandText = SQL;
+                    cmd.Connection = Starter.GetConnection();
+                    //Die Parameter in SQL-String mit Werten versehen...
+                    cmd.Parameters.Add(new SqlParameter("content", content));
+                    cmd.Parameters.Add(new SqlParameter("id", postID));
+                    // ExecuteNonQuery() gibt die Anzahl der veränderten/angelegten Records zurück.
+                    return (cmd.ExecuteNonQuery() > 0);
+                }
+            }
+            string SQL = "insert into Posts (uid, cid, content, tid) values (@uid, @cid, @content, @tid)";
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = SQL;
+            cmd.Connection = Starter.GetConnection();
+            //Die Parameter in SQL-String mit Werten versehen...
+            cmd.Parameters.Add(new SqlParameter("uid", currentUser.uID));
+            cmd.Parameters.Add(new SqlParameter("cid", country.cID));
+            cmd.Parameters.Add(new SqlParameter("content", content));
+            cmd.Parameters.Add(new SqlParameter("tid", transport.transportID));
+            // ExecuteNonQuery() gibt die Anzahl der veränderten/angelegten Records zurück.
+            return (cmd.ExecuteNonQuery() > 0);
         }
 
 
