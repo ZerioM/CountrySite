@@ -34,7 +34,7 @@ namespace PL_CountrySite
 
             newPost.save(currentUser);
 
-            Response.Redirect("index.aspx");*/
+            Response.Redirect("index.aspx");
         }
     }
 }
