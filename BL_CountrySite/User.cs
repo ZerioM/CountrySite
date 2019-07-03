@@ -88,10 +88,18 @@ namespace BL_CountrySite
             SqlDataReader reader = cmd.ExecuteReader();
 
             reader.Read(); //setzt den Reader auf den ersten / nächsten DS
-            pwHashDB = reader.GetString(0);
+            try
+            {
+                pwHashDB = reader.GetString(0);
+                if (pwHashDB.Equals(md5(pwEntered))) return true;
+            }
+            catch (Exception e)
+            {
+
+            }
+            
 
 
-            if (pwHashDB.Equals(md5(pwEntered))) return true;
 
             
             return false;
@@ -117,7 +125,7 @@ namespace BL_CountrySite
                 return strBuilder.ToString();
             }
         }
-
+    
 }
 
 

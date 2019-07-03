@@ -26,7 +26,7 @@
             </p>
             <p>&nbsp;</p>
             <p>
-                <asp:Button ID="btnLogin" runat="server" Text="Login/Registrieren" />
+                <asp:Button ID="btnLogin" runat="server" Text="Login/Registrieren" OnClick="btnLogin_Click" />
             </p> 
 
 
