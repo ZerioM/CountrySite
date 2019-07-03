@@ -24,7 +24,7 @@ namespace BL_CountrySite
         public User getUser() {
             //Load user from DB
             User loadedUser = new User();
-            SqlCommand cmd = new SqlCommand("select u.uid, u.username, p.postID from Users as u left join Posts as p on u.uid = p.uid where uid = @id", Starter.GetConnection());
+            SqlCommand cmd = new SqlCommand("select u.uid, u.username, p.postID from Users as u left join Posts as p on u.uid = p.uid where u.uid = @id", Starter.GetConnection());
             cmd.Parameters.Add(new SqlParameter("id", user.uID));
             SqlDataReader reader = cmd.ExecuteReader();
 
