@@ -10,11 +10,24 @@ namespace PL_CountrySite
 {
     public partial class Beitrag : System.Web.UI.Page
     {
-        private Countries alleLänder;
+       
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (Session["Post"] != null)
+            {
+                Post currentPost =(Post) Session["Post"];
+                string content = currentPost.content;
+                 string cid = currentPost.country.cID.ToString();
+                 string tid = currentPost.transport.transportID.ToString();
+
+                tbContent.Text = content;
+
+                ddCountry.SelectedValue = cid;
+                ddTransport.SelectedValue = tid;
+               
+
+            }
 
         }
 
