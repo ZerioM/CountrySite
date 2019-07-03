@@ -23,7 +23,32 @@ namespace BL_CountrySite
 
         public User getUser() {
             //Load user from DB
-            return null;
+            User loadedUser = new User();
+            SqlCommand cmd = new SqlCommand("select uid, username, postID from Users as u inner join Posts as p on u.uid = p.uid where uid = @id", Starter.GetConnection());
+            cmd.Parameters.Add(new SqlParameter("id", user.uID));
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            loadedUser.uID = 0;
+
+            while (reader.Read())
+            {
+                if(loadedUser.uID != reader.GetInt32(0))
+                {
+                    loadedUser.uID = reader.GetInt32(0);
+                    loadedUser.userName = reader.GetString(1);
+                }
+
+                try
+                {
+                    loadedUser.postIDs.Add(reader.GetInt32(2));
+                }
+                catch (Exception e) {
+
+                }
+               
+                
+            }
+            return loadedUser;
         }
 
         public Country getCountry() {
