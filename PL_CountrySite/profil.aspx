@@ -12,7 +12,7 @@
 <div id="wrapper">
     <form id="form1" runat="server">
         <div style="margin-left: 0px">
-        <h1>Profil von NAME</h1>
+         <h1>Profil von <% =Session["UserName"]%></h1>
         <asp:LinkButton ID="lbtnToNewPost"  runat="server">+</asp:LinkButton>
         <asp:LinkButton ID="lbtnToPWchange"  runat="server">Passwort ändern</asp:LinkButton>
         <asp:LinkButton ID="lbtnToHome"  runat="server">Home</asp:LinkButton>

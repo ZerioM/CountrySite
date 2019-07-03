@@ -34,7 +34,7 @@ namespace PL_CountrySite
             Object suche = Starter.searchByName(tbSearch.Text);
             if (suche == null)
             {
-                lblError.Text = "Land bzw. User wurde nicht gefunden";
+                lblError.Text = "Land/User/Transportmittel wurde nicht gefunden";
             }
             else if (suche.GetType()==typeof(Country)){
                 Country country = (Country)suche;
@@ -44,16 +44,19 @@ namespace PL_CountrySite
                 Response.Redirect("Land.aspx");
 
             }else if (suche.GetType() == typeof(User)) {
-
+                User user = (User)suche;
                 lblError.Text = "User wurde gefunden";
-                Session["User"] = suche;
+                Session["User"] = user;
+                Session["UserName"] = user.userName;
                 Response.Redirect("Profil.aspx");
 
             }
             else if (suche.GetType() == typeof(Transport))
             {
+                Transport transport = (Transport)suche;
                 lblError.Text = "Transport wurde gefunden";
-                Session["Transport"] = suche;
+                Session["Transport"] = transport;
+                Session["TransportName"] = transport.transportName;
                 Response.Redirect("Transportmittel.aspx");
             }
         }
