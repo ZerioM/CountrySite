@@ -19,9 +19,9 @@
 
             <br />
             <br />
-            <asp:TextBox ID="tbSuche" runat="server" OnTextChanged="tbSuche_TextChanged"></asp:TextBox>
+            <asp:TextBox ID="tbSearch" runat="server" OnTextChanged="tbSuche_TextChanged"></asp:TextBox>
 
-            <asp:Button ID="btnSuche" runat="server" Text="Suche" />
+            <asp:Button ID="btnSuche" runat="server" Text="Suche" OnClick="btnSuche_Click" />
             <br />
             <br />
 

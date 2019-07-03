@@ -49,13 +49,13 @@ namespace PL_CountrySite {
         protected global::System.Web.UI.WebControls.LinkButton lbtnToAdmin;
         
         /// <summary>
-        /// tbSuche-Steuerelement
+        /// tbSearch-Steuerelement
         /// </summary>
         /// <remarks>
         /// Automatisch generiertes Feld
         /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbSuche;
+        protected global::System.Web.UI.WebControls.TextBox tbSearch;
         
         /// <summary>
         /// btnSuche-Steuerelement

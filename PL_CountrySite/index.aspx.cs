@@ -24,8 +24,11 @@ namespace PL_CountrySite
            
         }
 
-        protected void tbSuche_TextChanged(object sender, EventArgs e)
+        
+        protected void btnSuche_Click(object sender, EventArgs e)
         {
+
+            //Starter.searchByName(tbSearch.Text);
 
         }
     }
