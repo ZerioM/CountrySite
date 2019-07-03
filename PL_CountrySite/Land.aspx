@@ -12,7 +12,7 @@
     <div id="wrapper">
     <form id="form1" runat="server">
         <div style="margin-left: 0px">
-        <h1>LAND</h1>
+        <h1><% =Session["CountryName"]%></h1>
         <asp:LinkButton ID="lbtnToNewPost"  runat="server">+</asp:LinkButton>
         <asp:LinkButton ID="lbtnToProfile"  runat="server">Profil</asp:LinkButton>
         <asp:LinkButton ID="lbtnToHome"  runat="server">Home</asp:LinkButton>
@@ -31,23 +31,17 @@
                     <asp:TemplateField HeaderText="Username">
                         <ItemTemplate>
                             <asp:LinkButton ID="lbtnToUser" runat="server">
-                                 '<%#Eval("user.userName") %>'
+                                 <%#Eval("user.userName") %>
                             </asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>
 
-                     <asp:TemplateField HeaderText="Land">
-                        <ItemTemplate>
-                            <asp:LinkButton ID="lbtnToCountry" runat="server">
-                                 '<%#Eval("country.countryName") %>'
-                            </asp:LinkButton>
-                        </ItemTemplate>
-                    </asp:TemplateField>
+                  
 
                      <asp:TemplateField HeaderText="Transportmittel">
                         <ItemTemplate>
                             <asp:LinkButton ID="lbtnToTransport" runat="server">
-                                 '<%#Eval("transport.transportName") %>'
+                                 <%#Eval("transport.transportName") %>
                             </asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>

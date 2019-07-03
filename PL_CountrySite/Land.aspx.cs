@@ -14,6 +14,7 @@ namespace PL_CountrySite
         protected void Page_Load(object sender, EventArgs e)
         {
             Country country = (Country)Session["Country"];
+           
 
             allePosts = country.getPosts();
             gvPosts.DataSource = allePosts;

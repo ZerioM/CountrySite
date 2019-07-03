@@ -37,9 +37,10 @@ namespace PL_CountrySite
                 lblError.Text = "Land bzw. User wurde nicht gefunden";
             }
             else if (suche.GetType()==typeof(Country)){
-
+                Country country = (Country)suche;
                 lblError.Text = "Land wurde gefunden";
-                Session["Country"] = suche;
+                Session["Country"] = country;
+                Session["CountryName"] = country.countryName;
                 Response.Redirect("Land.aspx");
 
             }else if (suche.GetType() == typeof(User)) {
