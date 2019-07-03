@@ -24,7 +24,7 @@ namespace BL_CountrySite
         public User getUser() {
             //Load user from DB
             User loadedUser = new User();
-            SqlCommand cmd = new SqlCommand("select uid, username, postID from Users as u inner join Posts as p on u.uid = p.uid where uid = @id", Starter.GetConnection());
+            SqlCommand cmd = new SqlCommand("select u.uid, u.username, p.postID from Users as u left join Posts as p on u.uid = p.uid where u.uid = @id", Starter.GetConnection());
             cmd.Parameters.Add(new SqlParameter("id", user.uID));
             SqlDataReader reader = cmd.ExecuteReader();
 
@@ -53,12 +53,64 @@ namespace BL_CountrySite
 
         public Country getCountry() {
             //Load country from DB
-            return null;
+            Country loadedCountry = new Country();
+            SqlCommand cmd = new SqlCommand("select c.cid, c.name, p.postID from Countries as c left join Posts as p on c.cid = p.cid where c.cid = @id", Starter.GetConnection());
+            cmd.Parameters.Add(new SqlParameter("id", country.cID));
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            loadedCountry.cID = 0;
+
+            while (reader.Read())
+            {
+                if (loadedCountry.cID != reader.GetInt32(0))
+                {
+                    loadedCountry.cID = reader.GetInt32(0);
+                    loadedCountry.countryName = reader.GetString(1);
+                }
+
+                try
+                {
+                    loadedCountry.postIDs.Add(reader.GetInt32(2));
+                }
+                catch (Exception e)
+                {
+
+                }
+
+
+            }
+            return loadedCountry;
         }
 
         public Transport getTransport() {
             //Load transport from DB
-            return null;
+            Transport loadedTransport = new Transport();
+            SqlCommand cmd = new SqlCommand("select t.tid, t.name, p.postID from Transport as t left join Posts as p on t.tid = p.tid where t.tid = @id", Starter.GetConnection());
+            cmd.Parameters.Add(new SqlParameter("id", transport.transportID));
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            loadedTransport.transportID = 0;
+
+            while (reader.Read())
+            {
+                if (loadedTransport.transportID != reader.GetInt32(0))
+                {
+                    loadedTransport.transportID = reader.GetInt32(0);
+                    loadedTransport.transportName = reader.GetString(1);
+                }
+
+                try
+                {
+                    loadedTransport.postIDs.Add(reader.GetInt32(2));
+                }
+                catch (Exception e)
+                {
+
+                }
+
+
+            }
+            return loadedTransport;
         }
 
         public Posts save(loggedInUser currentUser) {
