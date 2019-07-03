@@ -28,14 +28,6 @@
 
                 <Columns>
 
-                    <asp:TemplateField HeaderText="Username">
-                        <ItemTemplate>
-                            <asp:LinkButton ID="lbtnToUser" runat="server">
-                                 <%#Eval("user.userName") %>
-                            </asp:LinkButton>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-
                      <asp:TemplateField HeaderText="Land">
                         <ItemTemplate>
                             <asp:LinkButton ID="lbtnToCountry" runat="server">

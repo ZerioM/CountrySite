@@ -44,13 +44,6 @@
                         </ItemTemplate>
                     </asp:TemplateField>
 
-                     <asp:TemplateField HeaderText="Transportmittel">
-                        <ItemTemplate>
-                            <asp:LinkButton ID="lbtnToTransport" runat="server">
-                                 <%#Eval("transport.transportName") %>
-                            </asp:LinkButton>
-                        </ItemTemplate>
-                    </asp:TemplateField>
 
                     <asp:BoundField DataField="date" HeaderText="Datum" />
                     <asp:BoundField DataField="content" HeaderText="Inhalt" />
