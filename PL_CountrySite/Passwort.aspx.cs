@@ -14,5 +14,16 @@ namespace PL_CountrySite
         {
 
         }
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+            string oldPassword = tbOldPassword.Text;
+            string newPassword = tbNewPassword.Text;
+
+            loggedInUser currentUser = (loggedInUser) Session["loggedInUser"];
+            if(currentUser.changePassword(oldPassword, newPassword)) Response.Redirect("Profil.aspx");
+
+            lblErrorLogin.Text = "Das Ändern des Passwortes hat leider nicht funktioniert. \n Bitte überprüfen Sie Ihr altes Passwort!";
+        }
     }
 }

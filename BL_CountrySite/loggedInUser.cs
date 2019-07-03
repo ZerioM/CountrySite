@@ -12,7 +12,7 @@ namespace BL_CountrySite
 
         internal loggedInUser() { }
 
-        public loggedInUser changePassword(string oldPassword, string newPassword) {
+        public bool changePassword(string oldPassword, string newPassword) {
             string pwHashDB;
 
             string SQL = "select pwHash from Users where uID = @id";
@@ -27,16 +27,19 @@ namespace BL_CountrySite
 
             if (pwHashDB.Equals(md5(oldPassword)))
             {
-                string updateSTMT = "update Users set pwHash = '@pH' where uID = @id";
+                string updateSTMT = "update Users set pwHash = @pH where uID = @id";
                 SqlCommand updateCMD = new SqlCommand();
                 updateCMD.CommandText = updateSTMT;
                 updateCMD.Connection = Starter.GetConnection();
                 updateCMD.Parameters.Add(new SqlParameter("pH", md5(newPassword)));
+                updateCMD.Parameters.Add(new SqlParameter("id",uID));
+                return (updateCMD.ExecuteNonQuery() > 0);
             }
             else {
                 Console.WriteLine("Passwort nicht gefunden");
+                return false;
             }
-            return this;
+            
         }
 
         internal bool insert(string password) {
