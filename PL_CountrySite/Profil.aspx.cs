@@ -14,16 +14,36 @@ namespace PL_CountrySite
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            User user = (User)Session["User"];
+            if (Session["User"] != null) {
 
-            allePosts = user.getPosts();
+                User user = (User)Session["User"];
+                allePosts = user.getPosts();
                 gvPosts.DataSource = allePosts;
                 gvPosts.DataBind();
+
+                Session["User"] = null;
+
+            }
+            else
+            {
+                Post post = (Post) Session["Post"];
+                User user = post.getUser();
+                allePosts = user.getPosts();
+                gvPosts.DataSource = allePosts;
+                gvPosts.DataBind();
+
+
+            }
+
+           
   
             
 
         }
 
-       
+        protected void lbtnToHome_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("index.aspx");
+        }
     }
 }

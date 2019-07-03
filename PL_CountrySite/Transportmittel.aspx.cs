@@ -20,5 +20,10 @@ namespace PL_CountrySite
             gvPosts.DataBind();
 
         }
+
+        protected void lbtnToHome_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("index.aspx");
+        }
     }
 }

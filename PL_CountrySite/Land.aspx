@@ -15,7 +15,7 @@
         <h1><% =Session["CountryName"]%></h1>
         <asp:LinkButton ID="lbtnToNewPost"  runat="server">+</asp:LinkButton>
         <asp:LinkButton ID="lbtnToProfile"  runat="server">Profil</asp:LinkButton>
-        <asp:LinkButton ID="lbtnToHome"  runat="server">Home</asp:LinkButton>
+        <asp:LinkButton ID="lbtnToHome"  runat="server" OnClick="lbtnToHome_Click">Home</asp:LinkButton>
       
 
             <h2>Beiträge</h2>

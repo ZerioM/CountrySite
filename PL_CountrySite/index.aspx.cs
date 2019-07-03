@@ -63,7 +63,19 @@ namespace PL_CountrySite
 
         protected void gvPosts_SelectedIndexChanged(object sender, EventArgs e)
         {
+          
+            GridViewRow row = gvPosts.SelectedRow;
+            // die Zeilennummer in der GridView entsricht der Position in der Liste
+            Session["PostID"] = allePosts[row.RowIndex].postID; 
+            Response.Redirect("Land.aspx"); 
+        }
 
+        protected void lbtnToUser_Click(object sender, EventArgs e)
+        {
+            GridViewRow row = gvPosts.SelectedRow;
+            // die Zeilennummer in der GridView entsricht der Position in der Liste
+            Session["Post"] = allePosts[row.RowIndex];
+            Response.Redirect("Profil.aspx");
         }
     }
 }

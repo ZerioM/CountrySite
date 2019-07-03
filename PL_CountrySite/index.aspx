@@ -41,7 +41,7 @@
 
                     <asp:TemplateField HeaderText="Username">
                         <ItemTemplate>
-                            <asp:LinkButton ID="lbtnToUser" runat="server">
+                            <asp:LinkButton ID="lbtnToUser" runat="server" OnClick="lbtnToUser_Click">
                                  <%#Eval("user.userName") %>
                             </asp:LinkButton>
                         </ItemTemplate>
