@@ -28,11 +28,11 @@ namespace PL_CountrySite
             {
                 Post post = (Post) Session["Post"];
                 User user = post.getUser();
-                allePosts = user.getPosts();
+                 allePosts = user.getPosts();
                 gvPosts.DataSource = allePosts;
                 gvPosts.DataBind();
 
-
+                    
             }
 
            
