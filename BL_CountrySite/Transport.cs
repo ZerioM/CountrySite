@@ -11,7 +11,7 @@ namespace BL_CountrySite
     {
         public int transportID { get; internal set; }
         public string transportName { get; set; }
-        public List<int> postIDs { get; internal set; }
+        public List<int> postIDs = new List<int>();
 
         public Posts getPosts() {
             Posts posts = new Posts(); //initialisiere lehre Liste

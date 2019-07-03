@@ -12,7 +12,7 @@ namespace BL_CountrySite
     {
         public int uID { get; internal set; }
         public string userName { get; set; }
-        public List<int> postIDs { get; internal set; }
+        public List<int> postIDs = new List<int>();
 
         public Posts getPosts()
         {
