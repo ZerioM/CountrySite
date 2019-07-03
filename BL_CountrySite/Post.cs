@@ -54,7 +54,7 @@ namespace BL_CountrySite
         public Country getCountry() {
             //Load country from DB
             Country loadedCountry = new Country();
-            SqlCommand cmd = new SqlCommand("select c.cid, c.name, p.postID from Countries as c left join Posts as p on c.cid = p.cid where cid = @id", Starter.GetConnection());
+            SqlCommand cmd = new SqlCommand("select c.cid, c.name, p.postID from Countries as c left join Posts as p on c.cid = p.cid where c.cid = @id", Starter.GetConnection());
             cmd.Parameters.Add(new SqlParameter("id", country.cID));
             SqlDataReader reader = cmd.ExecuteReader();
 
@@ -84,7 +84,33 @@ namespace BL_CountrySite
 
         public Transport getTransport() {
             //Load transport from DB
-            return null;
+            Transport loadedTransport = new Transport();
+            SqlCommand cmd = new SqlCommand("select t.tid, t.name, p.postID from Transport as t left join Posts as p on t.tid = p.tid where t.tid = @id", Starter.GetConnection());
+            cmd.Parameters.Add(new SqlParameter("id", transport.transportID));
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            loadedTransport.transportID = 0;
+
+            while (reader.Read())
+            {
+                if (loadedTransport.transportID != reader.GetInt32(0))
+                {
+                    loadedTransport.transportID = reader.GetInt32(0);
+                    loadedTransport.transportName = reader.GetString(1);
+                }
+
+                try
+                {
+                    loadedTransport.postIDs.Add(reader.GetInt32(2));
+                }
+                catch (Exception e)
+                {
+
+                }
+
+
+            }
+            return loadedTransport;
         }
 
         public Posts save(loggedInUser currentUser) {
