@@ -50,7 +50,7 @@ namespace BL_CountrySite
         internal static Countries getAllCountries()
         {
 
-            SqlCommand cmd = new SqlCommand("select cid, name from Countries", Starter.GetConnection());
+            SqlCommand cmd = new SqlCommand("select c.cid, c.name, p.postID from Countries as c left join Posts as p on c.cid = p.cid", Starter.GetConnection());
             SqlDataReader reader = cmd.ExecuteReader();
             Countries allCountries = new Countries(); //initialisiere lehre Liste
 
