@@ -17,7 +17,7 @@ namespace PL_CountrySite
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            string enteredUsername = tbUsername.Text;
+            string enteredUsername = tbUsername.Text; 
             string enteredPassword = tbPassword.Text;
 
             loggedInUser result = Starter.login(enteredUsername, enteredPassword);
