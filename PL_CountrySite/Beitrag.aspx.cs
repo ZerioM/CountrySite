@@ -42,6 +42,7 @@ namespace PL_CountrySite
             Post newPost = new Post();
             newPost.country.countryName = selectedCountry;
             newPost.transport.transportName = selectedTransport;
+            newPost.content = tbContent.Text;
 
             loggedInUser currentUser = (loggedInUser) Session["loggedInUser"];
 
