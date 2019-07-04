@@ -18,9 +18,8 @@ namespace PL_CountrySite
 
                 User user = (User)Session["User"];
                 allePosts = user.getPosts();
-                Session["UserName"] = user.userName;
-                List<Post> descAllPosts = allePosts.OrderByDescending(Post => Post.date).ToList<Post>();
-                gvPosts.DataSource = descAllPosts;
+                //List<Post> descAllPosts = allePosts.OrderByDescending(Post => Post.date).ToList<Post>();
+                gvPosts.DataSource = allePosts;
                 gvPosts.DataBind();
 
                 Session["User"] = null;
@@ -32,6 +31,7 @@ namespace PL_CountrySite
                 User user = post.getUser();
                 Session["UserName"] = user.userName;
                 allePosts = user.getPosts();
+               // List<Post> descAllPosts = allePosts.OrderByDescending(Post => Post.date).ToList<Post>();
                 gvPosts.DataSource = allePosts;
                 gvPosts.DataBind();
 
@@ -41,9 +41,8 @@ namespace PL_CountrySite
                 {
                     User user = (User)Session["loggedInUser"];
                     allePosts = user.getPosts();
-                    Session["UserName"] = user.userName;
-                    List<Post> descAllPosts = allePosts.OrderByDescending(Post => Post.date).ToList<Post>();
-                    gvPosts.DataSource = descAllPosts;
+                   // List<Post> descAllPosts = allePosts.OrderByDescending(Post => Post.date).ToList<Post>();
+                    gvPosts.DataSource = allePosts;
                     gvPosts.DataBind();
 
                 }
