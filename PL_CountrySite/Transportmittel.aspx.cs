@@ -64,6 +64,7 @@ namespace PL_CountrySite
             LinkButton lbtnCopyToUser = (LinkButton)sender;
             int RowIndex = Convert.ToInt32(lbtnCopyToUser.CommandArgument.ToString());
             Session["Post"] = allePosts[RowIndex];
+            Session["WayToProfile"] = "name";
             Response.Redirect("Profil.aspx");
 
 
