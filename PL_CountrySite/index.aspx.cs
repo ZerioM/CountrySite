@@ -34,9 +34,11 @@ namespace PL_CountrySite
             if (Session["loggedInUser"] != null)
             {
                 lbtnLogout.Visible = true;
+                lbtnLogin.Visible = false;
             }
             else {
                 lbtnLogout.Visible = false;
+                lbtnLogin.Visible = true;
             }
            
         }
@@ -167,6 +169,13 @@ namespace PL_CountrySite
         {
             Session["loggedInUser"] = null;
             Session["AdminUser"] = null;
+            Response.Redirect("index.aspx");
+        }
+
+        protected void lbtnLogin_Click(object sender, EventArgs e)
+        {
+            Session["WayToLogin"] = "index";
+            Response.Redirect("Login.aspx");
         }
 
         /*protected void gvPosts_RowDataBound(object sender, GridViewRowEventArgs e) //falls man auswählen button ausblenden mag

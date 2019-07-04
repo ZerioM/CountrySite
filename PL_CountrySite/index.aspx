@@ -17,6 +17,7 @@
         <asp:LinkButton ID="lbtnToProfile"  runat="server" OnClick="lbtnToProfile_Click">Profil</asp:LinkButton>
         <asp:LinkButton ID="lbtnToAdmin" runat="server" OnClick="lbtnToAdmin_Click" Visible="False">Admin Seite</asp:LinkButton>
 
+            <asp:LinkButton ID="lbtnLogin" runat="server" OnClick="lbtnLogin_Click">Login</asp:LinkButton>
             <asp:LinkButton ID="lbtnLogout" runat="server" OnClick="lbtnLogout_Click" Visible="False">Logout</asp:LinkButton>
 
             <br />

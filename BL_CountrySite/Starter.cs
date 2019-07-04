@@ -95,6 +95,13 @@ namespace BL_CountrySite
                 {
                     User user = (User)o;
                     if (user.checkPassword(password)) {
+                        if (user.checkAdmin()) {
+                            AdminUser admin = new AdminUser();
+                            admin.uID = user.uID;
+                            admin.userName = user.userName;
+                            admin.postIDs = user.postIDs;
+                            return admin;
+                        }
                         loggedInUser loggedInUser = new loggedInUser();
                         loggedInUser.uID = user.uID;
                         loggedInUser.userName = user.userName;

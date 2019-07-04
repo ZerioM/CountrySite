@@ -41,6 +41,8 @@ namespace PL_CountrySite
                         
                     }
                 }
+                if (Session["WayToLogin"].ToString().Equals("index"))
+                    Response.Redirect("index.aspx");
                 Session["User"] = result;
                 Session["UserName"] = result.userName;
                 Response.Redirect("Profil.aspx");
