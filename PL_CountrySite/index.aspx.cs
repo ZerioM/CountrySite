@@ -18,8 +18,9 @@ namespace PL_CountrySite
         {
            
            
-                allePosts = Starter.getAllPosts(); 
-                gvPosts.DataSource = allePosts;
+                allePosts = Starter.getAllPosts();
+                List<Post> descAllPosts = allePosts.OrderByDescending(Post => Post.date).ToList<Post>();
+                gvPosts.DataSource = descAllPosts;
                 gvPosts.DataBind();
 
             if (Session["AdminUser"] != null)

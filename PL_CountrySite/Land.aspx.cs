@@ -19,7 +19,8 @@ namespace PL_CountrySite
 
                 Country country = (Country)Session["Country"];
                 allePosts = country.getPosts();
-                gvPosts.DataSource = allePosts;
+                List<Post> descAllPosts = allePosts.OrderByDescending(Post => Post.date).ToList<Post>();
+                gvPosts.DataSource = descAllPosts;
                 gvPosts.DataBind();
 
                 Session["Country"] = null;

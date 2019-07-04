@@ -18,7 +18,8 @@ namespace PL_CountrySite
 
                 User user = (User)Session["User"];
                 allePosts = user.getPosts();
-                gvPosts.DataSource = allePosts;
+                List<Post> descAllPosts = allePosts.OrderByDescending(Post => Post.date).ToList<Post>();
+                gvPosts.DataSource = descAllPosts;
                 gvPosts.DataBind();
 
                 Session["User"] = null;
@@ -104,6 +105,11 @@ namespace PL_CountrySite
         protected void lbtnToPWchange_Click(object sender, EventArgs e)
         {
             Response.Redirect("Passwort.aspx");
+        }
+
+        protected void lbtnToNewPost_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Beitrag.aspx");
         }
     }
 }
