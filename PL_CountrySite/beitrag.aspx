@@ -37,6 +37,7 @@
             <p>
                 <asp:Label ID="lblContent" runat="server" Text="Beitrag:"></asp:Label>
                 <asp:TextBox ID="tbContent" runat="server" Height="113px"></asp:TextBox>
+
             </p>
             <p>&nbsp;</p>
             <p>

@@ -25,18 +25,29 @@ namespace PL_CountrySite
                 Session["User"] = null;
 
             }
+            else if (Session["Post"]!=null)
+            {
+                Post post = (Post)Session["Post"];
+                User user = post.getUser();
+                Session["UserName"] = user.userName;
+                allePosts = user.getPosts();
+                gvPosts.DataSource = allePosts;
+                gvPosts.DataBind();
+
+
+            }
             else
             {
-                Post post = (Post) Session["Post"];
-                if (post != null)
+                if (Session["loggedInUser"] != null)
                 {
-                    User user = post.getUser();
-                    Session["UserName"] = user.userName;
+                    User user = (User)Session["loggedInUser"];
                     allePosts = user.getPosts();
-                    gvPosts.DataSource = allePosts;
+                    List<Post> descAllPosts = allePosts.OrderByDescending(Post => Post.date).ToList<Post>();
+                    gvPosts.DataSource = descAllPosts;
                     gvPosts.DataBind();
 
-                } 
+                }
+               
             }
 
             if (Session["loggedInUser"] != null) {
