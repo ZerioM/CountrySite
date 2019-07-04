@@ -14,10 +14,11 @@ namespace PL_CountrySite
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["User"] != null) {
+            if (Session["WayToProfile"].ToString().Equals("search")) {
 
                 User user = (User)Session["User"];
                 allePosts = user.getPosts();
+                Session["UserName"] = user.userName;
                 List<Post> descAllPosts = allePosts.OrderByDescending(Post => Post.date).ToList<Post>();
                 gvPosts.DataSource = descAllPosts;
                 gvPosts.DataBind();
@@ -25,7 +26,7 @@ namespace PL_CountrySite
                 Session["User"] = null;
 
             }
-            else if (Session["Post"]!=null)
+            if (Session["WayToProfile"].ToString().Equals("name"))
             {
                 Post post = (Post)Session["Post"];
                 User user = post.getUser();
@@ -36,19 +37,17 @@ namespace PL_CountrySite
 
 
             }
-            else
-            {
-                if (Session["loggedInUser"] != null)
+            if (Session["WayToProfile"].ToString().Equals("profile"))
                 {
                     User user = (User)Session["loggedInUser"];
                     allePosts = user.getPosts();
+                    Session["UserName"] = user.userName;
                     List<Post> descAllPosts = allePosts.OrderByDescending(Post => Post.date).ToList<Post>();
                     gvPosts.DataSource = descAllPosts;
                     gvPosts.DataBind();
 
                 }
                
-            }
 
             if (Session["loggedInUser"] != null) {
                 lbtnToPWchange.Visible = true;

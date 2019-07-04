@@ -135,10 +135,8 @@ namespace BL_CountrySite
             selectTCMD.Connection = Starter.GetConnection();
             selectTCMD.Parameters.Add(new SqlParameter("nam", transport.transportName));
             SqlDataReader Treader = selectTCMD.ExecuteReader();
-            while (Treader.Read())
-            {
-                transport.transportID = Treader.GetInt32(0);
-            }
+            Treader.Read();
+            transport.transportID = Treader.GetInt32(0);
 
             if (postID != -1) {
                 //test, if user who created this post, is currently logged in user

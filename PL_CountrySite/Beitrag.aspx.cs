@@ -10,13 +10,14 @@ namespace PL_CountrySite
 {
     public partial class Beitrag : System.Web.UI.Page
     {
-       
+
+        Post currentPost;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Post"] != null)
             {
-                Post currentPost =(Post) Session["Post"];
+                currentPost =(Post) Session["Post"];
                 string content = currentPost.content;
                  string cid = currentPost.country.cID.ToString();
                  string tid = currentPost.transport.transportID.ToString();
@@ -39,16 +40,34 @@ namespace PL_CountrySite
             string selectedTransport = ddTransport.SelectedItem.Text;
             //int selectedTransportID = Int32.Parse(ddTransport.SelectedValue);
 
-            Post newPost = new Post();
-            newPost.country.countryName = selectedCountry;
-            newPost.transport.transportName = selectedTransport;
-            newPost.content = tbContent.Text;
+            loggedInUser currentUser = (loggedInUser)Session["loggedInUser"];
 
-            loggedInUser currentUser = (loggedInUser) Session["loggedInUser"];
+            if (Session["Post"] != null)
+            {
+                currentPost.content = tbContent.Text;
+                currentPost.country.countryName = selectedCountry;
+                currentPost.transport.transportName = selectedTransport;
 
-            if (newPost.save(currentUser)) {
-                Response.Redirect("index.aspx");
+                if (currentPost.save(currentUser)) {
+                    Response.Redirect("index.aspx");
+                }
+
             }
+            else {
+
+                Post newPost = new Post();
+                newPost.country.countryName = selectedCountry;
+                newPost.transport.transportName = selectedTransport;
+                newPost.content = tbContent.Text;
+
+
+
+                if (newPost.save(currentUser))
+                {
+                    Response.Redirect("index.aspx");
+                }
+            }
+            
 
             lblErrorLogin.Text = "Beitrag konnte aufgrund eines Fehlers nicht gespeichert werden.";
             

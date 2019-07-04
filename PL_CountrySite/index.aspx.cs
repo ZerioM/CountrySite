@@ -73,6 +73,7 @@ namespace PL_CountrySite
             {
                 User user = (User)searchObject;
                 Session["User"] = user;
+                Session["WayToProfile"] = "search";
                 Session["UserName"] = user.userName;
                 Response.Redirect("Profil.aspx");
 
@@ -94,6 +95,7 @@ namespace PL_CountrySite
             LinkButton lbtnCopyToUser = (LinkButton)sender;
             int RowIndex = Convert.ToInt32(lbtnCopyToUser.CommandArgument.ToString());
             Session["Post"] = allePosts[RowIndex];
+            Session["WayToProfile"] = "name";
             Response.Redirect("Profil.aspx");
 
            
@@ -154,9 +156,11 @@ namespace PL_CountrySite
 
         protected void lbtnToProfile_Click(object sender, EventArgs e)
         {
+            Session["WayToLogin"] = "profile";
+            Session["WayToProfile"] = "profile";
             if (Session["loggedInUser"] != null) Response.Redirect("Profil.aspx");
 
-            Session["WayToLogin"] = "profile";
+       
             Response.Redirect("Login.aspx");
         }
 
