@@ -41,6 +41,15 @@ namespace PL_CountrySite
                 }
             }
 
+            if (Session["loggedInUser"] != null)
+            {
+                lbtnLogout.Visible = true;
+            }
+            else
+            {
+                lbtnLogout.Visible = false;
+            }
+
 
         }
 
@@ -94,6 +103,11 @@ namespace PL_CountrySite
 
         }
 
-
+        protected void lbtnLogout_Click(object sender, EventArgs e)
+        {
+            Session["loggedInUser"] = null;
+            Session["AdminUser"] = null;
+            Response.Redirect("index.aspx");
+        }
     }
 }

@@ -49,6 +49,15 @@ namespace PL_CountrySite {
         protected global::System.Web.UI.WebControls.LinkButton lbtnToHome;
         
         /// <summary>
+        /// lbtnLogout-Steuerelement
+        /// </summary>
+        /// <remarks>
+        /// Automatisch generiertes Feld
+        /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnLogout;
+        
+        /// <summary>
         /// gvPosts-Steuerelement
         /// </summary>
         /// <remarks>

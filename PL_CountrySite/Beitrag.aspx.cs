@@ -53,5 +53,10 @@ namespace PL_CountrySite
             lblErrorLogin.Text = "Beitrag konnte aufgrund eines Fehlers nicht gespeichert werden.";
             
         }
+
+        protected void lbtnToHome_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("index.aspx");
+        }
     }
 }

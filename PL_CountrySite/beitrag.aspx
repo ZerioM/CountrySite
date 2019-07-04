@@ -15,6 +15,11 @@
         <div style="margin-left: 0px">
         <h1>Neuer Beitrag</h1>
             <p>
+        <asp:LinkButton ID="lbtnToHome"  runat="server" OnClick="lbtnToHome_Click">Home</asp:LinkButton>
+      
+
+            </p>
+            <p>
                 <asp:Label ID="lblErrorLogin" runat="server"></asp:Label>
             </p>
             <p>

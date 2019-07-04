@@ -18,6 +18,9 @@
         <asp:LinkButton ID="lbtnToHome"  runat="server" OnClick="lbtnToHome_Click">Home</asp:LinkButton>
       
 
+            &nbsp;<asp:LinkButton ID="lbtnLogout" runat="server" OnClick="lbtnLogout_Click" Visible="False">Logout</asp:LinkButton>
+      
+
             <h2>Beiträge</h2>
            
            <asp:GridView ID="gvPosts" runat="server"

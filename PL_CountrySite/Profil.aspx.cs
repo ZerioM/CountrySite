@@ -41,14 +41,16 @@ namespace PL_CountrySite
 
             if (Session["loggedInUser"] != null) {
                 lbtnToPWchange.Visible = true;
+                lbtnLogout.Visible = true;
             } else
             {
                 lbtnToPWchange.Visible = false;
+                lbtnLogout.Visible = false;
             }
 
-           
-  
-            
+    
+
+
 
         }
 
@@ -110,6 +112,13 @@ namespace PL_CountrySite
         protected void lbtnToNewPost_Click(object sender, EventArgs e)
         {
             Response.Redirect("Beitrag.aspx");
+        }
+
+        protected void lbtnLogout_Click(object sender, EventArgs e)
+        {
+            Session["loggedInUser"] = null;
+            Session["AdminUser"] = null;
+            Response.Redirect("index.aspx");
         }
     }
 }
