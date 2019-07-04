@@ -18,8 +18,9 @@ namespace PL_CountrySite
         {
            
            
-                allePosts = Starter.getAllPosts(); 
-                gvPosts.DataSource = allePosts;
+                allePosts = Starter.getAllPosts();
+                List<Post> descAllPosts = allePosts.OrderByDescending(Post => Post.date).ToList<Post>();
+                gvPosts.DataSource = descAllPosts;
                 gvPosts.DataBind();
 
             if (Session["AdminUser"] != null)
@@ -29,7 +30,14 @@ namespace PL_CountrySite
             else {
                 lbtnToAdmin.Visible = false;
             }
-           
+
+            if (Session["loggedInUser"] != null)
+            {
+                lbtnLogout.Visible = true;
+            }
+            else {
+                lbtnLogout.Visible = false;
+            }
            
         }
 
@@ -153,6 +161,12 @@ namespace PL_CountrySite
         protected void lbtnToAdmin_Click(object sender, EventArgs e)
         {
             Response.Redirect("Admin.aspx");
+        }
+
+        protected void lbtnLogout_Click(object sender, EventArgs e)
+        {
+            Session["loggedInUser"] = null;
+            Session["AdminUser"] = null;
         }
 
         /*protected void gvPosts_RowDataBound(object sender, GridViewRowEventArgs e) //falls man auswählen button ausblenden mag

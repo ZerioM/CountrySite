@@ -20,7 +20,8 @@ namespace PL_CountrySite
 
                 Transport transport = (Transport)Session["Transport"];
                 allePosts = transport.getPosts();
-                gvPosts.DataSource = allePosts;
+                List<Post> descAllPosts = allePosts.OrderByDescending(Post => Post.date).ToList<Post>();
+                gvPosts.DataSource = descAllPosts;
                 gvPosts.DataBind();
 
                 Session["Transport"] = null;
@@ -38,6 +39,15 @@ namespace PL_CountrySite
                     gvPosts.DataBind();
 
                 }
+            }
+
+            if (Session["loggedInUser"] != null)
+            {
+                lbtnLogout.Visible = true;
+            }
+            else
+            {
+                lbtnLogout.Visible = false;
             }
 
 
@@ -93,6 +103,11 @@ namespace PL_CountrySite
 
         }
 
-
+        protected void lbtnLogout_Click(object sender, EventArgs e)
+        {
+            Session["loggedInUser"] = null;
+            Session["AdminUser"] = null;
+            Response.Redirect("index.aspx");
+        }
     }
 }

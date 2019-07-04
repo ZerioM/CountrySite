@@ -30,7 +30,16 @@ namespace PL_CountrySite
                 Session["loggedInUser"] = result;
                 
                 if (Session["WayToLogin"].ToString().Equals("plus")) {   
-                    Response.Redirect("Beitrag.aspx");
+                    if(Session["Post"] != null)
+                    {
+                        Post selectedPost = (Post)Session["Post"];
+
+                        loggedInUser lu = result;
+                        if (selectedPost.getUser().userName.Equals(lu.userName))
+                                Response.Redirect("Beitrag.aspx");
+                        else Response.Redirect("index.aspx");
+                        
+                    }
                 }
                 Session["User"] = result;
                 Session["UserName"] = result.userName;

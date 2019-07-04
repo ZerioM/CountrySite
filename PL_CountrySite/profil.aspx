@@ -13,9 +13,12 @@
     <form id="form1" runat="server">
         <div style="margin-left: 0px">
          <h1>Profil von <% =Session["UserName"]%></h1>
-        <asp:LinkButton ID="lbtnToNewPost"  runat="server">+</asp:LinkButton>
+        <asp:LinkButton ID="lbtnToNewPost"  runat="server" OnClick="lbtnToNewPost_Click">+</asp:LinkButton>
         <asp:LinkButton ID="lbtnToPWchange"  runat="server" OnClick="lbtnToPWchange_Click" Visible="False">Passwort ändern</asp:LinkButton>
         <asp:LinkButton ID="lbtnToHome"  runat="server" OnClick="lbtnToHome_Click">Home</asp:LinkButton>
+      
+
+            &nbsp;<asp:LinkButton ID="lbtnLogout" runat="server" OnClick="lbtnLogout_Click" Visible="False">Logout</asp:LinkButton>
       
 
             <h2>Beiträge</h2>
