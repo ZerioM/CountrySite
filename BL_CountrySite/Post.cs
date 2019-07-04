@@ -142,7 +142,7 @@ namespace BL_CountrySite
                 //test, if user who created this post, is currently logged in user
                 if (currentUser.uID.Equals(user.uID))
                 {
-                    string SQLSTMT = "update Posts set cid = @cid, content = '@content', tid = @tid where postID = @id";
+                    string SQLSTMT = "update Posts set cid = @cid, content = @content, tid = @tid where postID = @id";
                     SqlCommand updateCMD = new SqlCommand();
                     updateCMD.CommandText = SQLSTMT;
                     updateCMD.Connection = Starter.GetConnection();

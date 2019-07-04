@@ -90,7 +90,11 @@ namespace PL_CountrySite
                 loggedInUser lu = (loggedInUser)Session["loggedInUser"];
                 if (selectedPost.getUser().userName.Equals(lu.userName))
                     Response.Redirect("Beitrag.aspx");
-                else return;
+                else
+                {
+                    lblError.Text = "Sie können nicht Beiträge anderer User bearbeiten.";
+                    return;
+                }
             }
 
 

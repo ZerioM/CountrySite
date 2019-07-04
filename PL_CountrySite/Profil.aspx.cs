@@ -14,48 +14,55 @@ namespace PL_CountrySite
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["WayToProfile"].ToString().Equals("search")) {
-
-                User user = (User)Session["User"];
-                allePosts = user.getPosts();
-                //List<Post> descAllPosts = allePosts.OrderByDescending(Post => Post.date).ToList<Post>();
-                gvPosts.DataSource = allePosts;
-                gvPosts.DataBind();
-
-                Session["User"] = null;
-
-            }
-            if (Session["WayToProfile"].ToString().Equals("name"))
+            if (!IsPostBack)
             {
-                Post post = (Post)Session["Post"];
-                User user = post.getUser();
-                Session["UserName"] = user.userName;
-                allePosts = user.getPosts();
-               // List<Post> descAllPosts = allePosts.OrderByDescending(Post => Post.date).ToList<Post>();
-                gvPosts.DataSource = allePosts;
-                gvPosts.DataBind();
+                if (Session["WayToProfile"].ToString().Equals("search"))
+                {
+
+                    User user = (User)Session["User"];
+                    allePosts = user.getPosts();
+                    //List<Post> descAllPosts = allePosts.OrderByDescending(Post => Post.date).ToList<Post>();
+                    gvPosts.DataSource = allePosts;
+                    gvPosts.DataBind();
+
+                    Session["User"] = null;
+
+                }
+                if (Session["WayToProfile"].ToString().Equals("name"))
+                {
+                    Post post = (Post)Session["Post"];
+                    User user = post.getUser();
+                    Session["UserName"] = user.userName;
+                    allePosts = user.getPosts();
+                    // List<Post> descAllPosts = allePosts.OrderByDescending(Post => Post.date).ToList<Post>();
+                    gvPosts.DataSource = allePosts;
+                    gvPosts.DataBind();
 
 
-            }
-            if (Session["WayToProfile"].ToString().Equals("profile"))
+                }
+                if (Session["WayToProfile"].ToString().Equals("profile"))
                 {
                     User user = (User)Session["loggedInUser"];
                     allePosts = user.getPosts();
-                   // List<Post> descAllPosts = allePosts.OrderByDescending(Post => Post.date).ToList<Post>();
+                    // List<Post> descAllPosts = allePosts.OrderByDescending(Post => Post.date).ToList<Post>();
                     gvPosts.DataSource = allePosts;
                     gvPosts.DataBind();
 
                 }
-               
 
-            if (Session["loggedInUser"] != null) {
-                lbtnToPWchange.Visible = true;
-                lbtnLogout.Visible = true;
-            } else
-            {
-                lbtnToPWchange.Visible = false;
-                lbtnLogout.Visible = false;
+
+                if (Session["loggedInUser"] != null)
+                {
+                    lbtnToPWchange.Visible = true;
+                    lbtnLogout.Visible = true;
+                }
+                else
+                {
+                    lbtnToPWchange.Visible = false;
+                    lbtnLogout.Visible = false;
+                }
             }
+            
 
     
 
@@ -100,7 +107,11 @@ namespace PL_CountrySite
                 loggedInUser lu = (loggedInUser)Session["loggedInUser"];
                 if (selectedPost.getUser().userName.Equals(lu.userName))
                     Response.Redirect("Beitrag.aspx");
-                else return;
+                else
+                {
+                    lblError.Text = "Sie können nicht Beiträge anderer User bearbeiten.";
+                    return;
+                }
             }
 
 

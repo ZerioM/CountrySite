@@ -21,6 +21,12 @@
             &nbsp;<asp:LinkButton ID="lbtnLogout" runat="server" OnClick="lbtnLogout_Click" Visible="False">Logout</asp:LinkButton>
       
 
+            <br />
+            <asp:Label ID="lblError" runat="server" ForeColor="Red"></asp:Label>
+
+            <br />
+      
+
             <h2>Beiträge</h2>
            
           <asp:GridView ID="gvPosts" runat="server"

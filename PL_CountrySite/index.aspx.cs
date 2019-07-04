@@ -131,11 +131,15 @@ namespace PL_CountrySite
             if (Session["loggedInUser"] != null)
             {
                 loggedInUser lu = (loggedInUser)Session["loggedInUser"];
-                if (selectedPost.getUser().userName.Equals(lu.userName)) { 
+                if (selectedPost.getUser().userName.Equals(lu.userName))
+                {
                     Session["WayToPost"] = "edit";
                     Response.Redirect("Beitrag.aspx");
                 }
-                else return;
+                else {
+                    lblError.Text = "Sie können nicht Beiträge anderer User bearbeiten.";
+                    return;
+                } 
             }
                
 

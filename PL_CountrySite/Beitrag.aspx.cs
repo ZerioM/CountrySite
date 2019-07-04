@@ -15,20 +15,26 @@ namespace PL_CountrySite
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["WayToPost"].ToString().Equals("edit"))
-            {
-                currentPost =(Post) Session["Post"];
-                string content = currentPost.content;
-                 string cid = currentPost.country.cID.ToString();
-                 string tid = currentPost.transport.transportID.ToString();
+            currentPost = (Post) Session["currentPost"];
 
-                tbContent.Text = content;
+            if (!IsPostBack) {
+                if (Session["WayToPost"].ToString().Equals("edit"))
+                {
+                    currentPost = (Post)Session["Post"];
+                    string content = currentPost.content;
+                    string cid = currentPost.country.cID.ToString();
+                    string tid = currentPost.transport.transportID.ToString();
 
-                ddCountry.SelectedValue = cid;
-                ddTransport.SelectedValue = tid;
-               
+                    tbContent.Text = content;
 
+                    ddCountry.SelectedValue = cid;
+                    ddTransport.SelectedValue = tid;
+
+                    Session["currentPost"] = currentPost;
+                }
             }
+            
+
 
         }
 
