@@ -139,6 +139,7 @@ namespace PL_CountrySite
 
         protected void lbtnToNewPost_Click(object sender, EventArgs e)
         {
+            Session["WayToPost"] = "plus";
             Response.Redirect("Beitrag.aspx");
         }
 
