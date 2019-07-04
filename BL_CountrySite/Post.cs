@@ -119,18 +119,17 @@ namespace BL_CountrySite
 
         public bool save(loggedInUser currentUser) {
 
-            string selectCSQL = "select cid from Countries where name = '@nam'";
+            string selectCSQL = "select cid from Countries where name = @nam";
             SqlCommand selectCCMD = new SqlCommand();
             selectCCMD.CommandText = selectCSQL;
             selectCCMD.Connection = Starter.GetConnection();
             selectCCMD.Parameters.Add(new SqlParameter("nam", country.countryName));
             SqlDataReader Creader = selectCCMD.ExecuteReader();
-            while (Creader.Read())
-            {
-                country.cID = Creader.GetInt32(0);
-            }
+            Creader.Read(); //setzt den Reader auf den ersten / nächsten DS
+            country.cID = Creader.GetInt32(0);
 
-            string selectTSQL = "select tid from Transport where name = '@nam'";
+
+            string selectTSQL = "select tid from Transport where name = @nam";
             SqlCommand selectTCMD = new SqlCommand();
             selectTCMD.CommandText = selectTSQL;
             selectTCMD.Connection = Starter.GetConnection();
