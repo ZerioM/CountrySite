@@ -13,44 +13,49 @@ namespace PL_CountrySite
     { private Posts allePosts;
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            if (Session["Country"] != null)
+            if (!IsPostBack)
             {
-
-                Country country = (Country)Session["Country"];
-                allePosts = country.getPosts();
-                //List<Post> descAllPosts = allePosts.OrderByDescending(Post => Post.date).ToList<Post>();
-                gvPosts.DataSource = allePosts;
-                gvPosts.DataBind();
-
-                Session["Country"] = null;
-
-            }
-            else
-            {
-
-                Post post = (Post)Session["Post"];
-                if (post != null)
+                if (Session["Country"] != null)
                 {
-                    Country country = post.getCountry();
-                    Session["CountryName"] = country.countryName;
+
+                    Country country = (Country)Session["Country"];
                     allePosts = country.getPosts();
+                    Session["allePosts"] = allePosts;
+                    //List<Post> descAllPosts = allePosts.OrderByDescending(Post => Post.date).ToList<Post>();
                     gvPosts.DataSource = allePosts;
                     gvPosts.DataBind();
+
+                    Session["Country"] = null;
+
+                }
+                else
+                {
+
+                    Post post = (Post)Session["Post"];
+                    if (post != null)
+                    {
+                        Country country = post.getCountry();
+                        Session["CountryName"] = country.countryName;
+                        allePosts = country.getPosts();
+                        Session["allePosts"] = allePosts;
+                        gvPosts.DataSource = allePosts;
+                        gvPosts.DataBind();
+                    }
+
+                }
+
+                if (Session["loggedInUser"] != null)
+                {
+                    lbtnLogout.Visible = true;
+                }
+                else
+                {
+                    lbtnLogout.Visible = false;
                 }
 
             }
 
-            if (Session["loggedInUser"] != null)
-            {
-                lbtnLogout.Visible = true;
-            }
-            else
-            {
-                lbtnLogout.Visible = false;
-            }
-
-
+            allePosts = (Posts) Session["allePosts"];
 
         }
 

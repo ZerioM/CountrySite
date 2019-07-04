@@ -20,6 +20,7 @@ namespace PL_CountrySite
 
                 Transport transport = (Transport)Session["Transport"];
                 allePosts = transport.getPosts();
+                Session["allePosts"] = allePosts;
                 //List<Post> descAllPosts = allePosts.OrderByDescending(Post => Post.date).ToList<Post>();
                 gvPosts.DataSource = allePosts;
                 gvPosts.DataBind();
@@ -35,6 +36,7 @@ namespace PL_CountrySite
                     Transport transport = post.getTransport();
                     Session["TransportName"] = transport.transportName;
                     allePosts = transport.getPosts();
+                    Session["allePosts"] = allePosts;
                     gvPosts.DataSource = allePosts;
                     gvPosts.DataBind();
 
@@ -49,7 +51,7 @@ namespace PL_CountrySite
             {
                 lbtnLogout.Visible = false;
             }
-
+            allePosts = (Posts) Session["allePosts"];
 
         }
 
