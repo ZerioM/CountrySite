@@ -21,6 +21,7 @@ namespace PL_CountrySite
 
                     User user = (User)Session["User"];
                     allePosts = user.getPosts();
+                    Session["allePosts"] = allePosts;
                     //List<Post> descAllPosts = allePosts.OrderByDescending(Post => Post.date).ToList<Post>();
                     gvPosts.DataSource = allePosts;
                     gvPosts.DataBind();
@@ -34,6 +35,7 @@ namespace PL_CountrySite
                     User user = post.getUser();
                     Session["UserName"] = user.userName;
                     allePosts = user.getPosts();
+                    Session["allePosts"] = allePosts;
                     // List<Post> descAllPosts = allePosts.OrderByDescending(Post => Post.date).ToList<Post>();
                     gvPosts.DataSource = allePosts;
                     gvPosts.DataBind();
@@ -44,6 +46,7 @@ namespace PL_CountrySite
                 {
                     User user = (User)Session["loggedInUser"];
                     allePosts = user.getPosts();
+                    Session["allePosts"] = allePosts;
                     // List<Post> descAllPosts = allePosts.OrderByDescending(Post => Post.date).ToList<Post>();
                     gvPosts.DataSource = allePosts;
                     gvPosts.DataBind();
@@ -62,6 +65,8 @@ namespace PL_CountrySite
                     lbtnLogout.Visible = false;
                 }
             }
+
+            allePosts = (Posts) Session["allePosts"];
             
 
     
@@ -134,7 +139,12 @@ namespace PL_CountrySite
 
         protected void lbtnToNewPost_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Beitrag.aspx");
+            Session["WayToPost"] = "plus";
+            if (Session["loggedInUser"] != null) Response.Redirect("Beitrag.aspx");
+
+            Session["WayToLogin"] = "plus";
+
+            Response.Redirect("Login.aspx");
         }
 
         protected void lbtnLogout_Click(object sender, EventArgs e)
