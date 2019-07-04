@@ -20,8 +20,8 @@ namespace PL_CountrySite
 
                 Transport transport = (Transport)Session["Transport"];
                 allePosts = transport.getPosts();
-                List<Post> descAllPosts = allePosts.OrderByDescending(Post => Post.date).ToList<Post>();
-                gvPosts.DataSource = descAllPosts;
+                //List<Post> descAllPosts = allePosts.OrderByDescending(Post => Post.date).ToList<Post>();
+                gvPosts.DataSource = allePosts;
                 gvPosts.DataBind();
 
                 Session["Transport"] = null;
