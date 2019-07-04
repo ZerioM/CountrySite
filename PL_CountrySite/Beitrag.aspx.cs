@@ -42,7 +42,7 @@ namespace PL_CountrySite
 
             loggedInUser currentUser = (loggedInUser)Session["loggedInUser"];
 
-            if (Session["Post"] != null)
+            if (currentPost.postID != -1)
             {
                 currentPost.content = tbContent.Text;
                 currentPost.country.countryName = selectedCountry;
