@@ -71,5 +71,29 @@ namespace PL_CountrySite
 
 
         }
+
+        protected void gvPosts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            GridViewRow row = gvPosts.SelectedRow;
+            Session["Post"] = allePosts[row.RowIndex];
+            Post selectedPost = (Post)Session["Post"];
+            if (Session["loggedInUser"] != null)
+            {
+                loggedInUser lu = (loggedInUser)Session["loggedInUser"];
+                if (selectedPost.getUser().userName.Equals(lu.userName))
+                    Response.Redirect("Beitrag.aspx");
+                else return;
+            }
+
+
+            Session["WayToLogin"] = "plus";
+            Response.Redirect("Login.aspx");
+
+
+
+
+
+        }
     }
 }

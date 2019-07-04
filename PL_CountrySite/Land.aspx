@@ -21,12 +21,13 @@
             <h2>Beiträge</h2>
            
            <asp:GridView ID="gvPosts" runat="server"
+               onselectedindexchanged="gvPosts_SelectedIndexChanged"  
                 AutoGenerateColumns="False"
                  BorderStyle="None" BorderWidth="0px" CellPadding="20" 
                 EmptyDataText="Keine Beiträge vorhanden" AutoGenerateSelectButton="False" >
 
                 <Columns>
-
+                      <asp:CommandField ShowSelectButton="True" SelectText="Bearbeiten" />
                     <asp:TemplateField HeaderText="Username">
                         <ItemTemplate>
                             <asp:LinkButton ID="lbtnToUser" runat="server" OnClick="lbtnToUser_Click" commandargument="<%# Container.DataItemIndex %>" >
