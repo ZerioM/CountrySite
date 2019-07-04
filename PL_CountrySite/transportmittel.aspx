@@ -13,7 +13,7 @@
     <form id="form1" runat="server">
         <div style="margin-left: 0px">
          <h1><% =Session["TransportName"]%></h1>
-        <asp:LinkButton ID="lbtnToNewPost"  runat="server">+</asp:LinkButton>
+        <asp:LinkButton ID="lbtnToNewPost"  runat="server" OnClick="lbtnToNewPost_Click">+</asp:LinkButton>
         <asp:LinkButton ID="lbtnToProfile"  runat="server">Profil</asp:LinkButton>
         <asp:LinkButton ID="lbtnToHome"  runat="server" OnClick="lbtnToHome_Click">Home</asp:LinkButton>
       

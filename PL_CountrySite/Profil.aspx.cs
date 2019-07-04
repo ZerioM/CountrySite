@@ -140,7 +140,11 @@ namespace PL_CountrySite
         protected void lbtnToNewPost_Click(object sender, EventArgs e)
         {
             Session["WayToPost"] = "plus";
-            Response.Redirect("Beitrag.aspx");
+            if (Session["loggedInUser"] != null) Response.Redirect("Beitrag.aspx");
+
+            Session["WayToLogin"] = "plus";
+
+            Response.Redirect("Login.aspx");
         }
 
         protected void lbtnLogout_Click(object sender, EventArgs e)

@@ -119,5 +119,15 @@ namespace PL_CountrySite
             Session["AdminUser"] = null;
             Response.Redirect("index.aspx");
         }
+
+        protected void lbtnToNewPost_Click(object sender, EventArgs e)
+        {
+            Session["WayToPost"] = "plus";
+            if (Session["loggedInUser"] != null) Response.Redirect("Beitrag.aspx");
+
+            Session["WayToLogin"] = "plus";
+
+            Response.Redirect("Login.aspx");
+        }
     }
 }
