@@ -13,9 +13,12 @@
     <form id="form1" runat="server">
         <div style="margin-left: 0px">
         <h1>Country Site</h1> 
-        <asp:LinkButton ID="lbtnToNewPost"  runat="server">+</asp:LinkButton>
-        <asp:LinkButton ID="lbtnToProfile"  runat="server">Profil</asp:LinkButton>
-        <asp:LinkButton ID="lbtnToAdmin" runat="server">Admin Seite</asp:LinkButton>
+        <asp:LinkButton ID="lbtnToNewPost"  runat="server" OnClick="lbtnToNewPost_Click">+</asp:LinkButton>
+        <asp:LinkButton ID="lbtnToProfile"  runat="server" OnClick="lbtnToProfile_Click">Profil</asp:LinkButton>
+        <asp:LinkButton ID="lbtnToAdmin" runat="server" OnClick="lbtnToAdmin_Click" Visible="False">Admin Seite</asp:LinkButton>
+
+            <asp:LinkButton ID="lbtnLogin" runat="server" OnClick="lbtnLogin_Click">Login</asp:LinkButton>
+            <asp:LinkButton ID="lbtnLogout" runat="server" OnClick="lbtnLogout_Click" Visible="False">Logout</asp:LinkButton>
 
             <br />
             <br />
@@ -32,10 +35,12 @@
             <h2>Beiträge</h2>
            
            <asp:GridView ID="gvPosts" runat="server"
+               onselectedindexchanged="gvPosts_SelectedIndexChanged"  
                 AutoGenerateColumns="False"
                  BorderStyle="None" BorderWidth="0px" CellPadding="20" 
-                EmptyDataText="Keine Beiträge vorhanden" >
+                EmptyDataText="Keine Beiträge vorhanden" AutoGenerateSelectButton="False">
                 <Columns>
+                    <asp:CommandField ShowSelectButton="True" SelectText="Bearbeiten" />
 
                     <asp:TemplateField HeaderText="Username">
                         <ItemTemplate>

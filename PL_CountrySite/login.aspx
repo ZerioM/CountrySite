@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="PL_CountrySite.login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="PL_CountrySite.Login" %>
 
 <!DOCTYPE html>
 
@@ -22,11 +22,11 @@
             </p>
             <p>
                 <asp:Label ID="lblPassword" runat="server" Text="Passwort:"></asp:Label>
-                <asp:TextBox ID="tbPassword" runat="server" Width="181px"></asp:TextBox>
+                <asp:TextBox ID="tbPassword" TextMode="Password" runat="server" Width="181px"></asp:TextBox>
             </p>
             <p>&nbsp;</p>
             <p>
-                <asp:Button ID="btnLogin" runat="server" Text="Login/Registrieren" />
+                <asp:Button ID="btnLogin" runat="server" Text="Login/Registrieren" OnClick="btnLogin_Click" />
             </p> 
 
 

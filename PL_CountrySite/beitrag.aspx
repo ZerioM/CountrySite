@@ -15,6 +15,11 @@
         <div style="margin-left: 0px">
         <h1>Neuer Beitrag</h1>
             <p>
+        <asp:LinkButton ID="lbtnToHome"  runat="server" OnClick="lbtnToHome_Click">Home</asp:LinkButton>
+      
+
+            </p>
+            <p>
                 <asp:Label ID="lblErrorLogin" runat="server"></asp:Label>
             </p>
             <p>
@@ -32,6 +37,7 @@
             <p>
                 <asp:Label ID="lblContent" runat="server" Text="Beitrag:"></asp:Label>
                 <asp:TextBox ID="tbContent" runat="server" Height="113px"></asp:TextBox>
+
             </p>
             <p>&nbsp;</p>
             <p>

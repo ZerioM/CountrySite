@@ -88,12 +88,39 @@ namespace BL_CountrySite
             SqlDataReader reader = cmd.ExecuteReader();
 
             reader.Read(); //setzt den Reader auf den ersten / nächsten DS
-            pwHashDB = reader.GetString(0);
+            try
+            {
+                pwHashDB = reader.GetString(0);
+                if (pwHashDB.Equals(md5(pwEntered))) return true;
+            }
+            catch (Exception e)
+            {
+
+            }
+            
 
 
-            if (pwHashDB.Equals(md5(pwEntered))) return true;
 
             
+            return false;
+        }
+
+        internal bool checkAdmin() {
+
+            string SQL = "select admin from Users where uID = @id";
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = SQL;
+            cmd.Connection = Starter.GetConnection();
+            cmd.Parameters.Add(new SqlParameter("id", uID));
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            reader.Read();
+
+            try {
+                return reader.GetBoolean(0);
+                
+            } catch (Exception e) { }
+
             return false;
         }
 
@@ -117,7 +144,7 @@ namespace BL_CountrySite
                 return strBuilder.ToString();
             }
         }
-
+    
 }
 
 

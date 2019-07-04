@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Transportmittel.aspx.cs" Inherits="PL_CountrySite.transportmittel" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Transportmittel.aspx.cs" Inherits="PL_CountrySite.Transportmittel" %>
 
 <!DOCTYPE html>
 
@@ -18,16 +18,26 @@
         <asp:LinkButton ID="lbtnToHome"  runat="server" OnClick="lbtnToHome_Click">Home</asp:LinkButton>
       
 
+            &nbsp;<asp:LinkButton ID="lbtnLogout" runat="server" OnClick="lbtnLogout_Click" Visible="False">Logout</asp:LinkButton>
+      
+
+            <br />
+            <asp:Label ID="lblError" runat="server" ForeColor="Red"></asp:Label>
+
+            <br />
+      
+
             <h2>Beiträge</h2>
            
            <asp:GridView ID="gvPosts" runat="server"
+               onselectedindexchanged="gvPosts_SelectedIndexChanged"  
                 AutoGenerateColumns="False"
                  BorderStyle="None" BorderWidth="0px" CellPadding="20" 
                 EmptyDataText="Keine Beiträge vorhanden" AutoGenerateSelectButton="False" >
               
 
                 <Columns>
-
+                      <asp:CommandField ShowSelectButton="True" SelectText="Bearbeiten" />
                     <asp:TemplateField HeaderText="Username">
                         <ItemTemplate>
                             <asp:LinkButton ID="lbtnToUser" runat="server" OnClick="lbtnToUser_Click" commandargument="<%# Container.DataItemIndex %>" >

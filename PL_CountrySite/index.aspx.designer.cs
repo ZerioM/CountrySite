@@ -49,6 +49,24 @@ namespace PL_CountrySite {
         protected global::System.Web.UI.WebControls.LinkButton lbtnToAdmin;
         
         /// <summary>
+        /// lbtnLogin-Steuerelement
+        /// </summary>
+        /// <remarks>
+        /// Automatisch generiertes Feld
+        /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnLogin;
+        
+        /// <summary>
+        /// lbtnLogout-Steuerelement
+        /// </summary>
+        /// <remarks>
+        /// Automatisch generiertes Feld
+        /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnLogout;
+        
+        /// <summary>
         /// lblError-Steuerelement
         /// </summary>
         /// <remarks>

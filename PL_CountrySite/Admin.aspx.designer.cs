@@ -10,7 +10,7 @@
 namespace PL_CountrySite {
     
     
-    public partial class Land {
+    public partial class Admin {
         
         /// <summary>
         /// form1-Steuerelement
@@ -22,24 +22,6 @@ namespace PL_CountrySite {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// lbtnToNewPost-Steuerelement
-        /// </summary>
-        /// <remarks>
-        /// Automatisch generiertes Feld
-        /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtnToNewPost;
-        
-        /// <summary>
-        /// lbtnToProfile-Steuerelement
-        /// </summary>
-        /// <remarks>
-        /// Automatisch generiertes Feld
-        /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtnToProfile;
-        
-        /// <summary>
         /// lbtnToHome-Steuerelement
         /// </summary>
         /// <remarks>
@@ -49,30 +31,66 @@ namespace PL_CountrySite {
         protected global::System.Web.UI.WebControls.LinkButton lbtnToHome;
         
         /// <summary>
-        /// lbtnLogout-Steuerelement
+        /// lblErrorAdmin-Steuerelement
         /// </summary>
         /// <remarks>
         /// Automatisch generiertes Feld
         /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtnLogout;
+        protected global::System.Web.UI.WebControls.Label lblErrorAdmin;
         
         /// <summary>
-        /// lblError-Steuerelement
+        /// lblNewCountry-Steuerelement
         /// </summary>
         /// <remarks>
         /// Automatisch generiertes Feld
         /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblError;
+        protected global::System.Web.UI.WebControls.Label lblNewCountry;
         
         /// <summary>
-        /// gvPosts-Steuerelement
+        /// tbNewCountry-Steuerelement
         /// </summary>
         /// <remarks>
         /// Automatisch generiertes Feld
         /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvPosts;
+        protected global::System.Web.UI.WebControls.TextBox tbNewCountry;
+        
+        /// <summary>
+        /// btnAddCountry-Steuerelement
+        /// </summary>
+        /// <remarks>
+        /// Automatisch generiertes Feld
+        /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddCountry;
+        
+        /// <summary>
+        /// lblNewTransport-Steuerelement
+        /// </summary>
+        /// <remarks>
+        /// Automatisch generiertes Feld
+        /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNewTransport;
+        
+        /// <summary>
+        /// tbNewTransport-Steuerelement
+        /// </summary>
+        /// <remarks>
+        /// Automatisch generiertes Feld
+        /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbNewTransport;
+        
+        /// <summary>
+        /// btnAddTransport-Steuerelement
+        /// </summary>
+        /// <remarks>
+        /// Automatisch generiertes Feld
+        /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddTransport;
     }
 }

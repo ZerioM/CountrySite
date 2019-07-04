@@ -13,7 +13,7 @@ namespace BL_CountrySite
         public string transportName { get; set; }
         public List<int> postIDs = new List<int>();
 
-        internal Transport() {
+        public Transport() {
 
         }
 
@@ -31,13 +31,12 @@ namespace BL_CountrySite
         public bool save(AdminUser admin) {
             if (admin != null)
             {
-                string SQL = "update Transport set name = '@nam' where tid = @id";
+                string SQL = "insert into Transport (name) values (@nam)";
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandText = SQL;
                 cmd.Connection = Starter.GetConnection();
                 //Die Parameter in SQL-String mit Werten versehen...
                 cmd.Parameters.Add(new SqlParameter("nam", transportName));
-                cmd.Parameters.Add(new SqlParameter("id", transportID));
                 // ExecuteNonQuery() gibt die Anzahl der veränderten/angelegten Records zurück.
                 return (cmd.ExecuteNonQuery() > 0);
             }

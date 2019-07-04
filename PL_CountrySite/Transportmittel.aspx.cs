@@ -8,7 +8,7 @@ using BL_CountrySite;
 
 namespace PL_CountrySite
 {
-    public partial class transportmittel : System.Web.UI.Page
+    public partial class Transportmittel : System.Web.UI.Page
     {
         private Posts allePosts;
         protected void Page_Load(object sender, EventArgs e)
@@ -20,6 +20,7 @@ namespace PL_CountrySite
 
                 Transport transport = (Transport)Session["Transport"];
                 allePosts = transport.getPosts();
+                //List<Post> descAllPosts = allePosts.OrderByDescending(Post => Post.date).ToList<Post>();
                 gvPosts.DataSource = allePosts;
                 gvPosts.DataBind();
 
@@ -38,6 +39,15 @@ namespace PL_CountrySite
                     gvPosts.DataBind();
 
                 }
+            }
+
+            if (Session["loggedInUser"] != null)
+            {
+                lbtnLogout.Visible = true;
+            }
+            else
+            {
+                lbtnLogout.Visible = false;
             }
 
 
@@ -69,6 +79,42 @@ namespace PL_CountrySite
 
         }
 
-     
+        protected void gvPosts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            GridViewRow row = gvPosts.SelectedRow;
+            Session["Post"] = allePosts[row.RowIndex];
+            Post selectedPost = (Post)Session["Post"];
+            if (Session["loggedInUser"] != null)
+            {
+                loggedInUser lu = (loggedInUser)Session["loggedInUser"];
+                if (selectedPost.getUser().userName.Equals(lu.userName))
+                {
+                    Session["WayToPost"] = "edit";
+                    Response.Redirect("Beitrag.aspx");
+                }
+                else
+                {
+                    lblError.Text = "Sie können nicht Beiträge anderer User bearbeiten.";
+                    return;
+                }
+            }
+
+
+            Session["WayToLogin"] = "plus";
+            Response.Redirect("Login.aspx");
+
+
+
+
+
+        }
+
+        protected void lbtnLogout_Click(object sender, EventArgs e)
+        {
+            Session["loggedInUser"] = null;
+            Session["AdminUser"] = null;
+            Response.Redirect("index.aspx");
+        }
     }
 }

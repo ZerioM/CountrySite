@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Passwort.aspx.cs" Inherits="PL_CountrySite.passwort" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Passwort.aspx.cs" Inherits="PL_CountrySite.Passwort" %>
 
 <!DOCTYPE html>
 
@@ -18,15 +18,15 @@
             </p>
             <p>
                 <asp:Label ID="lblCurrentPassword" runat="server" Text="Altes Passwort:"></asp:Label>
-                <asp:TextBox ID="tbUsername" runat="server" Width="175px"></asp:TextBox>
+                <asp:TextBox ID="tbOldPassword" TextMode="Password" runat="server" Width="175px"></asp:TextBox>
             </p>
             <p>
                 <asp:Label ID="lblNewPassword" runat="server" Text="Neues Passwort:"></asp:Label>
-                <asp:TextBox ID="tbPassword" runat="server" Width="181px"></asp:TextBox>
+                <asp:TextBox ID="tbNewPassword" TextMode="Password" runat="server" Width="181px"></asp:TextBox>
             </p>
             <p>&nbsp;</p>
             <p>
-                <asp:Button ID="btnSave" runat="server" Text="Speichern" />
+                <asp:Button ID="btnSave" runat="server" Text="Speichern" OnClick="btnSave_Click" />
             </p> 
 
 

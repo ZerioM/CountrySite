@@ -10,7 +10,7 @@
 namespace PL_CountrySite {
     
     
-    public partial class profil {
+    public partial class Profil {
         
         /// <summary>
         /// form1-Steuerelement
@@ -47,6 +47,24 @@ namespace PL_CountrySite {
         /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lbtnToHome;
+        
+        /// <summary>
+        /// lbtnLogout-Steuerelement
+        /// </summary>
+        /// <remarks>
+        /// Automatisch generiertes Feld
+        /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnLogout;
+        
+        /// <summary>
+        /// lblError-Steuerelement
+        /// </summary>
+        /// <remarks>
+        /// Automatisch generiertes Feld
+        /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblError;
         
         /// <summary>
         /// gvPosts-Steuerelement
