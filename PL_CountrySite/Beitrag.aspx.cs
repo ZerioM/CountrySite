@@ -15,7 +15,7 @@ namespace PL_CountrySite
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Post"] != null)
+            if (Session["WayToPost"].ToString().Equals("edit"))
             {
                 currentPost =(Post) Session["Post"];
                 string content = currentPost.content;
@@ -42,7 +42,7 @@ namespace PL_CountrySite
 
             loggedInUser currentUser = (loggedInUser)Session["loggedInUser"];
 
-            if (currentPost.postID != -1)
+            if (currentPost != null)
             {
                 currentPost.content = tbContent.Text;
                 currentPost.country.countryName = selectedCountry;

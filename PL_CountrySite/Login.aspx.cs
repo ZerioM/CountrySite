@@ -40,6 +40,7 @@ namespace PL_CountrySite
                         else Response.Redirect("index.aspx");
                         
                     }
+                    Response.Redirect("Beitrag.aspx");
                 }
                 if (Session["WayToLogin"].ToString().Equals("index"))
                     Response.Redirect("index.aspx");

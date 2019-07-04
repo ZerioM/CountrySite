@@ -131,8 +131,10 @@ namespace PL_CountrySite
             if (Session["loggedInUser"] != null)
             {
                 loggedInUser lu = (loggedInUser)Session["loggedInUser"];
-                if (selectedPost.getUser().userName.Equals(lu.userName))
+                if (selectedPost.getUser().userName.Equals(lu.userName)) { 
+                    Session["WayToPost"] = "edit";
                     Response.Redirect("Beitrag.aspx");
+                }
                 else return;
             }
                
@@ -148,9 +150,11 @@ namespace PL_CountrySite
 
         protected void lbtnToNewPost_Click(object sender, EventArgs e)
         {
+            Session["WayToPost"] = "plus";
             if (Session["loggedInUser"] != null) Response.Redirect("Beitrag.aspx");
 
             Session["WayToLogin"] = "plus";
+            
             Response.Redirect("Login.aspx");
             
         }
